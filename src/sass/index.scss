@@ -1,2 +1,8 @@
-@import './common';
-@import './example';
+@import './utils/common';
+@import './utils/vars';
+@import './utils/reset';
+@import './components/header';
+@import './components/gallery';
+@import './components/library';
+@import './components/footer';
+@import './components/modal';
