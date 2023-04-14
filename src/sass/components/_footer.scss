@@ -2,14 +2,13 @@
   background-color: var(--footer-color);
   padding: 28px 0px;
   height: 100px;
-  // width: 320px;
   display: flex;
-  flex-direction: row; //
-  flex-wrap: wrap;
+  flex-direction: column;
+  flex-wrap: nowrap;
   align-items: center;
   align-content: center;
   justify-content: center;
-  gap: 3px;
+  gap: 12px;
 
   font-weight: 400;
   font-size: 14px;
@@ -19,6 +18,9 @@
 
   @media screen and (min-width:768px) {
     font-size: 16px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 3px;
   }
 }
 
