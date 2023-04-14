@@ -1,0 +1,40 @@
+.footer {
+  background-color: var(--footer-color);
+  padding: 28px 0px;
+  height: 100px;
+  // width: 320px;
+  display: flex;
+  flex-direction: row; //
+  flex-wrap: wrap;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  gap: 3px;
+
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.17;
+  color: #545454;
+  fill: var(--accent-color);
+
+  @media screen and (min-width:768px) {
+    font-size: 16px;
+  }
+}
+
+.flex {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  fill: var(--accent-color);
+}
+
+.footer-link {
+  text-decoration: underline;
+  transition: color var(--transition);
+}
+
+.footer-link:hover,
+.footer-link:focus {
+    color: var(--accent-color);
+}
