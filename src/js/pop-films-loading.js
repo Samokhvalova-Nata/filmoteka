@@ -6,10 +6,9 @@ import { genres } from './genres';
 // import Notiflix from 'notiflix';
 
 
-console.log('poster_sizes:', poster_sizes);//TODO:
-// !!!!!!!!!!!!!!------ Змінити на (коли Вадим додасть в розмітку ul) ------!!!!!!!!
-// // const galleryListEl = document.querySelector('.film__list');
-const galleryListEl = document.querySelector('.gallery');
+// console.log('poster_sizes:', poster_sizes);//TODO:
+const galleryListEl = document.querySelector('.film__gallery');
+
 
 //initial fetch for 1st page
 handlePageBtnClick(1); //pagination._currentPage = 1
