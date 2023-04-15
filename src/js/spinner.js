@@ -1,4 +1,4 @@
-import { Spinner } from 'spin.js';
+// import { Spinner } from 'spin.js';
 
 window.onload = function () {
   const preloaderWebsite = document.querySelector('.spinner');
