@@ -20,14 +20,14 @@ img {
   }
 
   &__name {
-    color: #000000;
+    color: var(--primary-text-color);
     text-transform: uppercase;
     line-height: 1.16;
   }
 
   &__ganres {
     line-height: 1.33;
-    color: #B92F2C;
+    color: var(--accent-color);
   }
 }
 
