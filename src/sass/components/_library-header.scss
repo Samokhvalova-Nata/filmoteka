@@ -74,19 +74,16 @@
     text-transform: uppercase;
     border-radius: 100px;
     padding: 14px 32px;
-    background-color: $primary-white-color;
-    color: $accent-color;
-<<<<<<< Updated upstream
+    background-color: var(--primary-white-color);
+    color: var(--accent-color);
 
 
     &:hover,
     &:focus {
-        background-color: $accent-color;
-        color: $primary-white-color;
-        transition: $transition;
+        background-color: var(--accent-color);
+        color: var(--primary-white-color);
+        transition: var(--transition);
     }
-=======
->>>>>>> Stashed changes
 }
 
 @media screen and (min-width:320px) {
@@ -106,15 +103,10 @@
         height: 42px;
     }
 }
-<<<<<<< Updated upstream
 
-.collection__link--accent {
-    background-color: $accent-color ;
-=======
 .collection__link--accent{
-    background-color:$accent-color ;
->>>>>>> Stashed changes
-    color: $primary-white-color;
+    background-color:var(--accent-color) ;
+    color: var(--primary-white-color);
 }
 
 
