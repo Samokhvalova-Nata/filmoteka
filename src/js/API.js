@@ -12,16 +12,8 @@ export default class FetchThemoviedbAPI {
 
   async fetchMovie() {
      try {
-      
-      const url =  (`${this.BASE_URL}`, {
-            params: {
-                api_key: this.API_KEY,
-                q: this.query,
-                page: this.page,
-                language: 'en-US',
-            }
-        });
-     const response = await axios.get(url);
+      const url = `${this.BASE_URL}/search/movie?api_key=${this.API_KEY}&language=en-US&page=${this.page}&query=${this.searchQuery}`;
+      const response = await axios.get(url);
      return response.data;
     } catch (error) {
       throw new Error(error.message);
@@ -30,7 +22,7 @@ export default class FetchThemoviedbAPI {
 
     async fetchTrendMovies() {
         try {
-          const url = `${BASE_URL}trending/movie/week?api_key=${API_KEY}&language=${this.lang}`;
+          const url = `${this.BASE_URL}trending/movie/week?api_key=${this.API_KEY}&language=en-US`;
           const response = await axios.get(url);
           return response.data;
         } catch (error) {
@@ -41,7 +33,7 @@ export default class FetchThemoviedbAPI {
 
     async fetchMovieDetails(id) {
       try {
-        const url = `${BASE_URL}movie/${id}?api_key=${API_KEY}&language=${this.lang}`;
+        const url = `${this.BASE_URL}movie/${id}?api_key=${this.API_KEY}&language=en-US`;
         const response = await axios.get(url);
         return response.data;
       } catch (error) {
