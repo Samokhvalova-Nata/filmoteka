@@ -1,0 +1,122 @@
+.wrap {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+
+}
+
+@media screen and (max-width: 767px) {
+    .wrap {
+        height: 100%;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .wrap {
+        flex-direction: row;
+
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    .wrap {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
+
+
+@media screen and (max-width: 767px) {
+    .collection {
+        padding-right: 44px;
+        padding-bottom: 24px;
+        padding-left: 44px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .collection {
+        padding-right: 16px;
+        padding-top: 16px;
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    .collection {
+        padding-right: 32px;
+        padding-top: 16px;
+
+    }
+}
+
+
+.collection__list {
+    display: flex;
+    flex-direction: row;
+
+    gap: 10px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.17;
+}
+
+.collection__link {
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+    text-transform: uppercase;
+    border-radius: 100px;
+    padding: 14px 32px;
+    background-color: $primary-white-color;
+    color: $accent-color;
+
+
+    &:hover,
+    &:focus {
+        background-color: $accent-color;
+        color: $primary-white-color;
+        transition: $transition;
+    }
+}
+
+@media screen and (min-width:320px) {
+    .collection__link {
+        max-height: 34px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .collection__link {
+        height: 38px;
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    .collection__link {
+        height: 42px;
+    }
+}
+
+.collection__link--accent {
+    background-color: $accent-color ;
+    color: $primary-white-color;
+}
+
+
+
+
+@media screen and (max-width: 767px) {
+    .header-logo {
+        padding-bottom: 74px;
+        position: absolute;
+        bottom: 74px;
+        align-self: center;
+    }
+}
