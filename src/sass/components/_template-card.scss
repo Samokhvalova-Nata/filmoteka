@@ -5,6 +5,7 @@ img {
 .film {
 
   &__item {
+    border-radius: 5px;
     list-style: none;
     flex-basis: 100%;
     max-width: 100%;
@@ -14,12 +15,18 @@ img {
     &:focus {
       box-shadow: var(--card-shadow);
       transform: scale(1.02);
+
+      .film__poster {
+        border-bottom-left-radius: 0px;
+        border-bottom-right-radius: 0px;
+      }
     }
   }
 
   &__poster {
     border-radius: 5px;
     margin-bottom: 10px;
+    transition: var(--transition);
   }
 
   &__info {
