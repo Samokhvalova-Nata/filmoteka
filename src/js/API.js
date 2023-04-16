@@ -55,4 +55,12 @@ export default class FetchThemoviedbAPI {
       };
 };
 
+////////////////////////////////////////////////////перевірка///////////////////
+// const api = new FetchThemoviedbAPI();
+// api.fetchMovie().then(({data}) => console.dir(data));
+
+
+// console.dir(api.fetchTrendMovies());
+// console.dir(api.fetchMovie('spy'));
+// console.dir(api.fetchMovieDetails(111));
 
