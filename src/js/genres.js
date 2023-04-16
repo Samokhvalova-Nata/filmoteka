@@ -11,8 +11,7 @@ class Genres {
   }
 
   getName(id) {
-
-   // console.log(this.#genresAll);
+    // console.log(this.#genresAll);
     return this.#genresAll[id] || `Unknown genre(${id})`;
   }
 
@@ -20,7 +19,7 @@ class Genres {
     const len = idArr.length;
     if (len === 0) return '';
 
-    let n =[];
+    let n = [];
     for (let i = 0; i < Math.min(3, len); i += 1) {
       n.push(genres.getName(idArr[i]));
     }
@@ -28,7 +27,6 @@ class Genres {
 
     const r = n.join(', ');
     return r.slice(0, r.length - 2);
-
   }
 
   getAll(idArr) {
@@ -41,7 +39,7 @@ class Genres {
   async fill() {
     try {
       const { genres } = await fetchGenres();
-    //  console.log('fill Genres:', genres);
+      //  console.log('fill Genres:', genres);
       genres.forEach(element => {
         this.#genresAll[element.id] = element.name;
       });
@@ -53,4 +51,3 @@ class Genres {
 }
 
 export const genres = new Genres();
-
