@@ -3,8 +3,8 @@ const BASE_API = 'https://api.themoviedb.org';
 
 trailerModalCloseEl = document.querySelector('[data-trailer-close]');
 trailerModalEl = document.querySelector('[data-trailer-modal]');
-trailerModalOpenEl = document.querySelector('.modal__poster');
-// trailerModalOpenEl = document.querySelector('.modal__watch-treller');
+// trailerModalOpenEl = document.querySelector('.modal__poster');
+trailerModalOpenEl = document.querySelector('.modal__watch-treller');
 movieModalEl = document.querySelector('.modal__movie');
 iframeEl = document.querySelector('[data-iframe]');
 
