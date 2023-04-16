@@ -1,9 +1,9 @@
 const API_KEY = '7fc57a32bb8b4747bafc97bb7301e33f';
 const BASE_API = 'https://api.themoviedb.org';
+const movieId = 804150;
 
 trailerModalCloseEl = document.querySelector('[data-trailer-close]');
 trailerModalEl = document.querySelector('[data-trailer-modal]');
-// trailerModalOpenEl = document.querySelector('.modal__poster');
 trailerModalOpenEl = document.querySelector('.modal__watch-treller');
 movieModalEl = document.querySelector('.modal__movie');
 iframeEl = document.querySelector('[data-iframe]');
@@ -12,9 +12,9 @@ trailerModalOpenEl.addEventListener('click', handleOpenTrailerClick);
 trailerModalCloseEl.addEventListener('click', handleCloseTrailerBtnClick);
 
 function handleOpenTrailerClick() {
-  renderTrailerModal(804150);
+  renderTrailerModal(movieId);
   trailerModalEl.classList.toggle('visually-hidden');
-  movieModalEl.classList.toggle('visually-hidden');
+  //   movieModalEl.classList.toggle('visually-hidden');
   trailerModalEl.addEventListener('click', handleBackdropClick);
   document.addEventListener('keydown', handleEscapeClick);
 }
@@ -40,7 +40,7 @@ function handleCloseTrailerBtnClick() {
 
 function toggleModal() {
   iframeEl.innerHTML = ' ';
-  movieModalEl.classList.toggle('visually-hidden');
+  //   movieModalEl.classList.toggle('visually-hidden');
   trailerModalEl.classList.toggle('visually-hidden');
   document.addEventListener('keydown', handleEscapeClick);
 }
