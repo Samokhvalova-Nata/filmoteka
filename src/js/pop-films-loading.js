@@ -3,6 +3,7 @@ import { poster_sizes } from './fetchFromTheMovieDB';
 import { pagination } from './pagination.js';
 import { fetchPopMovies } from './fetchFromTheMovieDB';
 import { genres } from './genres';
+import { heightMax } from './withScroll';
 // import Notiflix from 'notiflix';
 
 // console.log('poster_sizes:', poster_sizes);//TODO:
@@ -43,14 +44,5 @@ function createGalleryCards(results, poster_size) {
     .join('');
 }
 
-// SCROLL SMOOTH====== AND will work with function async in the form===========
-// !!!!!!!!!!!!!!!!!!!!!!!
-function heightMax() {
-  let hScreen = galleryListEl.getBoundingClientRect();
-  console.log(hScreen);
-  const { height: cardHeight } = hScreen;
-  window.scrollBy({
-    top: cardHeight * 4,
-    behavior: 'smooth',
-  });
-}
+
+
