@@ -8,6 +8,13 @@ img {
     list-style: none;
     flex-basis: 100%;
     max-width: 100%;
+    transition: var(--transition);
+
+    &:hover,
+    &:focus {
+      box-shadow: var(--card-shadow);
+      transform: scale(1.02);
+    }
   }
 
   &__poster {
@@ -17,6 +24,8 @@ img {
 
   &__info {
     font-size: 12px;
+    padding-left: 8px;
+    padding-bottom: 8px;
   }
 
   &__name {
