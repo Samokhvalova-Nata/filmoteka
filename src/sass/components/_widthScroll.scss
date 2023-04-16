@@ -1,0 +1,42 @@
+.btn_toTop_wrapp {
+  place-self: end;
+  position: sticky;
+  bottom: 20px;
+  right: 0;
+  margin-right: 20px;
+  --offset: 100px;
+  margin-top: calc(100vh + var(--offset));
+  @media screen and (min-width: 768px) {
+    display: none;
+    cursor: none;
+    opacity: 0;
+  }
+}
+.toTopBtn {
+  bottom: 30px;
+  right: 0;
+  margin-top: 100vh;
+  font-family: inherit;
+  position: absolute;
+  /* visual styling */
+  text-decoration: none;
+  padding: 10px;
+  color: #fff;
+  background: rgba(255, 60, 0, 0.726);
+  border-radius: 100px;
+  white-space: nowrap;
+  animation: toTopBtn 5s infinite;
+  @keyframes toTopBtn {
+    0% {
+      transform: scale(1);
+    }
+
+    50% {
+      transform: scale(1.1);
+    }
+
+    100% {
+      transform: scale(1);
+    }
+  }
+}
