@@ -1,0 +1,69 @@
+.trailer {
+   background: rgba(0, 0, 0, 0.7);
+   // position: fixed;
+   // top: 0;
+   // width: 100%;
+   // height: 100%;
+   overflow: auto;
+
+   &__modal {
+      width: 300px;
+      background: rgba(0, 0, 0, 0.7);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+      @media screen and (min-width: 480px) {
+         width: 450px;
+      }
+
+      @media screen and (min-width: 768px) {
+         width: 750px;
+      }
+
+      @media screen and (min-width: 1280px) {
+         width: 1200px;
+      }
+
+      // @media (orientation: landscape) {
+      //    top: 50%;
+      //    left: 50%;
+      //    width: 80%;
+      //    height: auto;
+      //    transform: translate(-50%, -50%);
+      // }
+   }
+
+   &__close-icon {
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      background-color: var(--primary-white-color);
+      border-radius: 50%;
+   }
+
+   &__iframe {
+      display: block;
+      width: 100%;
+      height: 100%;
+
+      @media screen and (min-width: 480px) {
+         width: 450px;
+         height: 253px;
+      }
+
+      @media screen and (min-width: 768px) {
+         width: 750px;
+         height: 425px;
+      }
+
+      @media screen and (min-width: 1280px) {
+         width: 1200px;
+         height: 680px;
+      }
+   }
+}
