@@ -1,16 +1,25 @@
-// import { Spinner } from 'spin.js';
-
+import { Spinner } from 'spin.js';
+//======== new preloader RANDOM-SET
 window.onload = function () {
   const preloaderWebsite = document.querySelector('.spinner');
   setTimeout(function () {
     preloaderWebsite.classList.add('is-closed');
-  }, 3000);
+  }, 2000);
 };
+const divOfGift = document.querySelector('.tenor-gif-embed');
 
-//spinner async
-const gallery = document.querySelector('.gallery-spin');
-console.log(gallery);
-gallery.innerHTML = `<div class="spinner-backdrop"></div>`;
+function randomChangingGifts(arrOfGifts) {
+  const randomIndex = Math.random() * 4;
+  console.log(Math.floor(randomIndex));
+  divOfGift.dataset.postid = arrOfGifts[Math.ceil(randomIndex)];
+}
+randomChangingGifts([10244466, 14744773, 16742947, 16075618, 5323471]);
+
+//=======================spinner async only for form-search!!!
+
+// const gallery = document.querySelector('.film__gallery');
+// console.log(gallery);
+// gallery.innerHTML = `<div class="spinner-backdrop"></div>`;
 
 const opts = {
   lines: 12, // The number of lines to draw
