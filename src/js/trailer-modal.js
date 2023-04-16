@@ -49,16 +49,6 @@ function onFetchError(err) {
   console.warn(err);
 }
 
-async function fetchMovieTrailer(id) {
-  try {
-    return await fetch(
-      `${BASE_API}/3/movie/${id}/videos?api_key=${API_KEY}&language=en-US`
-    );
-  } catch (err) {
-    throw new Error(err.message);
-  }
-}
-
 function findOfficialTrailer(data) {
   let key;
   data.results.forEach(el => {
@@ -91,5 +81,7 @@ async function fetchMovieTrailer(id) {
 }
 
 async function renderTrailerModal(id) {
-  await fetchMovieTrailer(id).then(findOfficialTrailer).catch(onFetchError);
+  return await fetchMovieTrailer(id)
+    .then(findOfficialTrailer)
+    .catch(onFetchError);
 }
