@@ -14,7 +14,7 @@ trailerModalCloseEl.addEventListener('click', handleCloseTrailerBtnClick);
 function handleOpenTrailerClick() {
   renderTrailerModal(804150);
   trailerModalEl.classList.toggle('visually-hidden');
-  //   movieModalEl.classList.toggle('visually-hidden');
+  movieModalEl.classList.toggle('visually-hidden');
   trailerModalEl.addEventListener('click', handleBackdropClick);
   document.addEventListener('keydown', handleEscapeClick);
 }
@@ -40,8 +40,7 @@ function handleCloseTrailerBtnClick() {
 
 function toggleModal() {
   iframeEl.innerHTML = ' ';
-  document.body.classList.toggle('no-scroll');
-  //   movieModalEl.classList.toggle('visually-hidden');
+  movieModalEl.classList.toggle('visually-hidden');
   trailerModalEl.classList.toggle('visually-hidden');
   document.addEventListener('keydown', handleEscapeClick);
 }
