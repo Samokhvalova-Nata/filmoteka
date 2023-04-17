@@ -4,6 +4,7 @@ import { api } from './API';
 import { handlePageBtnClick } from './pop-films-loading';
 import { dataQuery } from './query-word-searching';
 import { Report } from 'notiflix/build/notiflix-report-aio';
+import { playSpinner, stopSpinner } from './spinner.js';
 
 const container = document.getElementById('tui-pagination-container');
 
@@ -18,8 +19,10 @@ function notActive(itemsTotal, pagesTotal) {
   totalCount = itemsTotal;
   totPages = pagesTotal;
   if (totPages < api.page) {
+    playSpinner();
     resetPagination();
     dataQuery((api.page = 1));
+    stopSpinner();
     Report.info(`This query has only ${totPages} pages`, '');
   }
 }
