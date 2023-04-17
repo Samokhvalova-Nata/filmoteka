@@ -1,10 +1,10 @@
 import axios from 'axios';
-​
+
 class FetchTheMovieDbAPI {
   //the properties below shall not be available outside to prevent accidential change
     #period = 'week'; //'week' or 'day' //TODO: check
     #searchQuery = 'Avatar'; //some default value
-​
+
     #BASE_URL = 'https://api.themoviedb.org/3/';
     #API_KEY = '169863a84bc27c731fc45c45dd4a4a7e';
     backEndConfig = { test: 0 };
@@ -17,17 +17,17 @@ class FetchTheMovieDbAPI {
         'w780',
         'original',
     ];
-​
+
     constructor() {
         this.fetchConf(); //TODO: can be commented (then backEndConfig will be not valid)
-    }
-​
-    async fetchMovie(page, searchQuery) {
+  }
+
+  async fetchMovie(page, searchQuery) {
     //update property value if parameter supplied
         if (searchQuery) {
         this.#searchQuery = searchQuery;
     }
-​
+
     try {
         const url = `${this.#BASE_URL}/search/movie?api_key=${this.#API_KEY}&language=en-US&page=${page}&query=${this.#searchQuery}`;
         const response = await axios.get(url);
@@ -36,7 +36,7 @@ class FetchTheMovieDbAPI {
         throw new Error(error.message);
     }
 }
-​
+
     async fetchPopMovies(page) {
         try {
             const url = `${this.#BASE_URL}trending/movie/${this.#period}?api_key=${this.#API_KEY}&page=${page}`;
@@ -46,7 +46,7 @@ class FetchTheMovieDbAPI {
             throw new Error(error.message);
         }
     }
-​
+
     async fetchMovieInfo(id) {
         try {
             const url = `${this.#BASE_URL}movie/${id}?api_key=${this.#API_KEY}&language=en-US`;
@@ -56,7 +56,7 @@ class FetchTheMovieDbAPI {
             throw new Error(error.message);
     }
     }
-​
+
     async fetchGenres() {
         const url = `${this.#BASE_URL}genre/movie/list?api_key=${this.#API_KEY}&language=en-US`;
         try {
@@ -66,7 +66,7 @@ class FetchTheMovieDbAPI {
             throw new Error(error.message);
         }
     }
-​
+
     async fetchConf() {
         const url = `${this.#BASE_URL}configuration?api_key=${this.#API_KEY}`;
         try {
@@ -77,7 +77,7 @@ class FetchTheMovieDbAPI {
             throw new Error(error.message);
         }
     }
-​
+
   //***
   //  returns first size which is equal or larger then widthMin
     getPosterSize(widthMin) {
@@ -88,12 +88,12 @@ class FetchTheMovieDbAPI {
     }
     return this.poster_sizes[this.poster_sizes.length-1];
     }
-​
+
     togglePeriod() {
         this.#period = this.#period === 'week' ? 'day' : 'week';
         return this.#period;
     }
 }
-​
+
 export const api = new FetchTheMovieDbAPI();
-​
+
