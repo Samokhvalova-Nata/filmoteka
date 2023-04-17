@@ -1,29 +1,41 @@
 <header>
- <div class="container">
-    <div class="container-header">
-        <div class="wrap">
-            <div class="header-wrap">
-    
-                <nav class="nav">
-                    <ul class=" nav nav__list list">
-                        <li><a href="./index.html" class="nav nav__link link">Home</a></li>
-                        <li><a href="./mylibrary.html" class="nav nav__link nav__link--current link">My Library</a>
-                        </li>
-                    </ul>
-    
-                </nav>
-            </div>
-            <div class="collection">
-                <ul class=" collection__list list">
-                    <li><a href="./index.html" class=" collection__link link">Watched</a></li>
-                    <li><a href="./index.html" class=" collection__link link">Queue</a></li>
-                </ul>
-            </div>
-        </div>
-    
-        <a href="./index.html" class="header-logo header-logo--library link"><svg class="header-logo__svg" width="59" height="59">
-            <use href="./images/symbol-defs.svg#icon-film"></use>
-        </svg><span class="logo-text">Filmoteka</span></a>
+  <div class="container-header">
+    <div class="wrap">
+      <div class="header-wrap">
+        <nav class="nav">
+          <ul class="nav nav__list list">
+            <li><a href="./index.html" class="nav nav__link link">Home</a></li>
+            <li>
+              <a
+                href="./mylibrary.html"
+                class="nav nav__link nav__link--current link"
+                >My Library</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <div class="collection">
+        <ul class="collection__list list">
+          <li>
+            <button type="button" class="collection__link link" data-watched>
+              Watched
+            </button>
+          </li>
+          <li>
+            <button type="button" class="collection__link link" data-queue>
+              Queue
+            </button>
+          </li>
+        </ul>
+      </div>
     </div>
- </div>
+
+    <a href="./index.html" class="header-logo header-logo--library link"
+      ><img class="header-logo__svg" src="./images/film.svg" alt="Logo" /><span
+        class="logo-text"
+        >Filmoteka</span
+      ></a
+    >
+  </div>
 </header>
