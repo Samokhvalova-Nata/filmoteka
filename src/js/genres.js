@@ -25,15 +25,13 @@ class Genres {
     }
     if (len > 3) n[2] = 'Other';
 
-    const r = n.join(', ');
-    return r.slice(0, r.length - 2);
+    return n.join(', ');
   }
 
   getAll(idArr) {
     if (idArr.length === 0) return '';
 
-    const r = idArr.map(e => genres.getName(e)).join(', ');
-    return r.slice(0, r.length - 2);
+    return idArr.map(e => genres.getName(e)).join(', ');
   }
 
   async fill() {

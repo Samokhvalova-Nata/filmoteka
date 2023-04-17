@@ -33,7 +33,7 @@ function createGalleryCards(results, poster_size) {
             <a class="film__item-link link" href="#"> 
                 <img class="film__poster" src="https://image.tmdb.org/t/p/${poster_size}${poster_path}" alt="poster to this movie" /> 
                 <div class="film__info"> 
-                     <h2 class="film__name">${title.slice(0, 30)}</h2> 
+                     <p class="film__name">${title.slice(0, 30)}</p> 
                      <p class="film__ganres">${genres.getSome(
                        genre_ids
                      )} | ${release_date.slice(0, 4)}</p> 
