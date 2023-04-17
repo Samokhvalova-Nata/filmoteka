@@ -204,6 +204,7 @@
 .search-bar__img {
   width: 16px;
   height: 16px;
+  fill: transparent;
   justify-content: center;
   stroke: var(--primary-text-color);
 }
@@ -314,7 +315,7 @@
 .header-logo__svg {
   width: 32px;
   height: 32px;
-
+fill: transparent;
   stroke: var(--primary-white-color);
   transition: stroke var(--transition);
 }
