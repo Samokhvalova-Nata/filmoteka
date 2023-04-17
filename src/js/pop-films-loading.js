@@ -25,13 +25,14 @@ async function handlePageBtnClick(page) {
 
 function createGalleryCards(results, poster_size) {
   return results
-    .map(({ poster_path, title, genre_ids, release_date }) => {
+    .map(({ poster_path, title, genre_ids, release_date, id }) => {
       return getTemplateCard({
         title,                   
         genresStr: genres.getSome(genre_ids), 
         release_year: release_date.slice(0, 4),      
         poster_path,              
-        poster_size
+        poster_size,
+        id
       })
     })
     .join('');
