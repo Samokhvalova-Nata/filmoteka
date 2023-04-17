@@ -1,12 +1,5 @@
-
-import { fetchPopMovies } from './fetchFromTheMovieDB';
-import { fetchMovieInfo } from './fetchFromTheMovieDB';
-import { genres } from './genres';
-import { handleFormSubmit } from './query-word-searching';
-import { fetchMoviesSearcher } from './query-word-searching';
-import { api } from './API.js'
-
-import { handlePageBtnClick } from './pop-films-loading'
+import { api } from './API.js';
+import { handlePageBtnClick } from './pop-films-loading';
 
 const refs = {
     btnCloseModal: document.querySelector('[data-modal-close]'),
@@ -24,15 +17,14 @@ async function holderOpenModal(event) {
     const filmId = event.target.dataset.id;
     if (filmId) {
         refs.modal.classList.remove('visually-hidden');
-        const filmInfo = await api.fetchMovieInfo(filmId);
-    
-        refs.filmCard.innerHTML = createModalCards(filmInfo);
+        try {
+            const filmInfo = await api.fetchMovieInfo(filmId);
+            refs.filmCard.innerHTML = createModalCards(filmInfo);
+        } catch (error) {
+    console.log('ERROR! ', error);
+        }
     }
 }
-    const genresName = [];
-        for (const gener of genres) {
-            genresName.push(gener.name);
-        }
 
 function createModalCards({poster_path, original_title, vote_average, vote_count, popularity, genres,
     overview }) {
@@ -131,8 +123,10 @@ function holderCloseByPressBackdrop(event) {
     window.addEventListener("keydown", handlerEscPrecc);
 
 function handlerEscPrecc(event) {
-    if (event.key === "Escape") {
+    console.log(event.key)
+    if (event.keyCode === "Escape") {
         refs.modal.classList.add("visually-hidden")
     }
     window.removeEventListener("keydown", handlerEscPrecc);
 }
+
