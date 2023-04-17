@@ -193,11 +193,11 @@
   background-color: var(--primary-white-color);
 
   right: 10px;
+  transition: background-color var(--transition);
 
   &:hover,
   &:focus {
     background-color: var(--accent-color);
-    transition: var(--transition);
   }
 }
 
@@ -205,7 +205,7 @@
   width: 16px;
   height: 16px;
   justify-content: center;
-  fill: var(--primary-text-color);
+  stroke: var(--primary-text-color);
 }
 
 @media screen and (max-width: 767px) {
@@ -238,11 +238,11 @@
   background-color: var(--primary-white-color);
   color: var(--primary-text-color);
   height: 34px;
+  transition: color var(--transition), background-color var(--transition);
   &:hover,
   &:focus {
     background-color: var(--primary-text-color);
     color: var(--primary-white-color);
-    transition: var(--transition);
   }
 }
 
@@ -267,6 +267,7 @@
   gap: 8px;
   display: flex;
   align-items: center;
+
   padding-left: 45px;
   padding-bottom: 20px;
 
@@ -276,16 +277,14 @@
   line-height: 1.19;
 
   color: var(--primary-white-color);
-
+  transition: color var(--transition);
   &:hover,
   &:focus {
     color: var(--primary-text-color);
-    transition: var(--transition);
   }
   &:hover .header-logo__svg,
   &:focus .header-logo__svg {
-    fill: var(--primary-text-color);
-    transition: var(--transition);
+    stroke: var(--primary-text-color);
   }
 }
 
@@ -315,7 +314,9 @@
 .header-logo__svg {
   width: 32px;
   height: 32px;
-  fill: var(--primary-white-color);
+
+  stroke: var(--primary-white-color);
+  transition: stroke var(--transition);
 }
 @media screen and (min-width: 768px) {
   .header-logo__svg {
