@@ -10,7 +10,6 @@ const divOfGift = document.querySelector('.tenor-gif-embed');
 
 function randomChangingGifts(arrOfGifts) {
   const randomIndex = Math.random() * 4;
-  console.log(Math.floor(randomIndex));
   divOfGift.dataset.postid = arrOfGifts[Math.ceil(randomIndex)];
 }
 randomChangingGifts([10244466, 14744773, 16742947, 16075618, 5323471]);

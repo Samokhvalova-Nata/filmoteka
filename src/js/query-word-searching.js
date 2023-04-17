@@ -36,7 +36,6 @@ export async function dataQuery() {
       return;
     }
     notActive(movies.total_results, movies.total_pages);
-    console.log(movies);
     renderMoviesMarkup(movies);
   } catch (error) {
     console.log(error);
