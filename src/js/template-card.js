@@ -1,22 +1,34 @@
 //FT-05 Зверстати шаблон картки одного фільму
 //for use in FT-15, FT-03, FT-09, FT-14, FT-15
+//Author: Zversh3108
+//Contributors: oshaleyko59
+
+const DEFAULT_POSTER_URL =
+  'https://motivatevalmorgan.com/wp-content/uploads/2016/06/default-movie.jpg';
 
 export function getTemplateCard({
+  id,
   title,
   genresStr,
   release_year,
   poster_path,
   poster_size = 'w342'}
 ) {
-  return `<li class="film__item">
+  const posterUrl = poster_path
+    ? `https://image.tmdb.org/t/p/${poster_size}${poster_path}`
+    : DEFAULT_POSTER_URL;
+
+  const year = release_year || 'Unknown';
+  const genres = genresStr || 'Other';
+  return `<li class="film__item" data-id=${id}>
     <img
       class="film__poster"
-      src="https://image.tmdb.org/t/p/${poster_size}${poster_path}"
-      alt="movie poster"
+      src="${posterUrl}"
+      alt="movie poster"  data-id=${id}
     />                                             <!-- Фото фільма -->
-    <div class="film__info">
+    <div class="film__info"  data-id=${id}>
       <p class="film__name">${title}</p>        <!-- Назва фільму -->
-      <p class="film__ganres">${genresStr} | ${release_year}</p>      <!-- Жанр та рік фільму -->
+      <p class="film__ganres">${genres} | ${year}</p>    <!-- Жанр та рік фільму -->
     </div>
   </li>`;
 }
