@@ -2,11 +2,11 @@ const API_KEY = '7fc57a32bb8b4747bafc97bb7301e33f';
 const BASE_API = 'https://api.themoviedb.org';
 const movieId = 804150;
 
-
-trailerModalEl = document.querySelector('[data-trailer-modal]');
+trailerModalCloseEl = document.querySelector('.trailer__close-icon');
+trailerModalEl = document.querySelector('.trailer');
 trailerModalOpenEl = document.querySelector('.modal__watch-treller');
 movieModalEl = document.querySelector('.modal__movie');
-iframeEl = document.querySelector('[data-iframe]');
+iframeEl = document.querySelector('.trailer__iframe-wrap');
 
 trailerModalOpenEl.addEventListener('click', handleOpenTrailerClick);
 trailerModalCloseEl.addEventListener('click', handleCloseTrailerBtnClick);
