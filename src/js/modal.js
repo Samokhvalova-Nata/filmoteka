@@ -21,14 +21,11 @@ refs.modal.addEventListener("click", holderCloseByPressBackdrop);
 refs.galary.addEventListener('click', holderOpenModal);
 
 async function holderOpenModal(event) {
-
-    if (event.target.nodeName === 'IMG' || event.target.nodeName === 'P') {
-        refs.modal.classList.remove("visually-hidden");
-        const filmId = event.target.id;
-        console.log(filmId);
+    const filmId = event.target.dataset.id;
+    if (filmId) {
+        refs.modal.classList.remove('visually-hidden');
         const filmInfo = await api.fetchMovieInfo(filmId);
     
-        console.log(filmInfo);
         refs.filmCard.innerHTML = createModalCards(filmInfo);
     }
 }

@@ -20,13 +20,13 @@ export function getTemplateCard({
 
   const year = release_year || 'Unknown';
   const genres = genresStr || 'Other';
-  return `<li class="film__item" id=${id}>
+  return `<li class="film__item" data-id=${id}>
     <img
       class="film__poster"
       src="${posterUrl}"
-      alt="${title}" loading="lazy" id=${id}
+      alt="${title}" loading="lazy"  data-id=${id}
     />                                             <!-- Фото фільма -->
-    <div class="film__info"  id=${id}>
+    <div class="film__info"  data-id=${id}>
       <p class="film__name">${title}</p>        <!-- Назва фільму -->
       <p class="film__ganres">${genres} | ${year}</p>    <!-- Жанр та рік фільму -->
     </div>
