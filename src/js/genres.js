@@ -20,10 +20,10 @@ class Genres {
     if (len === 0) return '';
 
     let n = [];
-    for (let i = 0; i < Math.min(3, len); i += 1) {
+    for (let i = 0; i < Math.min(2, len); i += 1) {
       n.push(genres.getName(idArr[i]));
     }
-    if (len > 3) n[2] = 'Other';
+    if (len > 2) n.push('Other');
 
     return n.join(', ');
   }
