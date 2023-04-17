@@ -24,7 +24,7 @@ export function getTemplateCard({
     <img
       class="film__poster"
       src="${posterUrl}"
-      alt="movie poster"  data-id=${id}
+      alt="${title}" loading="lazy"  data-id=${id}
     />                                             <!-- Фото фільма -->
     <div class="film__info"  data-id=${id}>
       <p class="film__name">${title}</p>        <!-- Назва фільму -->
