@@ -2,7 +2,7 @@ const API_KEY = '7fc57a32bb8b4747bafc97bb7301e33f';
 const BASE_API = 'https://api.themoviedb.org';
 const movieId = 804150;
 
-trailerModalCloseEl = document.querySelector('[data-trailer-close]');
+//trailerModalCloseEl = document.querySelector('[data-trailer-close]');
 trailerModalEl = document.querySelector('[data-trailer-modal]');
 trailerModalOpenEl = document.querySelector('.modal__watch-treller');
 movieModalEl = document.querySelector('.modal__movie');
