@@ -20,9 +20,9 @@ class FetchTheMovieDbAPI {
 
     constructor() {
         this.fetchConf(); //TODO: can be commented (then backEndConfig will be not valid)
-  }
+    }
 
-  async fetchMovie(page, searchQuery) {
+    async fetchMovie(page, searchQuery) {
     //update property value if parameter supplied
         if (searchQuery) {
         this.#searchQuery = searchQuery;
