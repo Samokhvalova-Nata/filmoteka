@@ -18,10 +18,14 @@ queueGalleryEl.addEventListener('click', renderQueueGallery);
 window.addEventListener('load', renderWatchedGallery);
 
 function renderWatchedGallery() {
+  watchedGalleryEl.classList.add('active');
+  //   queueGalleryEl.classList.toggle('active');
   renderGalleryFromLocaleStorage('watched');
 }
 
 function renderQueueGallery() {
+  //   queueGalleryEl.classList.toggle('active');
+  watchedGalleryEl.classList.remove('active');
   renderGalleryFromLocaleStorage('queue');
 }
 
@@ -54,7 +58,7 @@ function renderWatchedCards(data) {
       alt=""
     />
     <div class="film__info">
-      <h2 class="film__name">${data.title}</h2>
+      <p class="film__name">${data.title}</p>
       <p class="film__ganres">${movieGenres} | ${data.release_date.slice(
       0,
       4
