@@ -96,3 +96,4 @@ class FetchTheMovieDbAPI {
 }
 
 export const api = new FetchTheMovieDbAPI();
+

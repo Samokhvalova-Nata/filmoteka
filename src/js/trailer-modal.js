@@ -3,11 +3,11 @@ const BASE_API = 'https://api.themoviedb.org';
 
 const movieId = 948713;
 
-trailerModalCloseEl = document.querySelector('[data-trailer-close]');
-trailerModalEl = document.querySelector('[data-trailer-modal]');
-trailerModalOpenEl = document.querySelector('.modal__watch-treller');
-movieModalEl = document.querySelector('.modal__movie');
-iframeEl = document.querySelector('[data-iframe]');
+const trailerModalCloseEl = document.querySelector('[data-trailer-close]');
+const trailerModalEl = document.querySelector('[data-trailer-modal]');
+const trailerModalOpenEl = document.querySelector('.modal__watch-treller');
+const movieModalEl = document.querySelector('.modal__movie');
+const iframeEl = document.querySelector('[data-iframe]');
 
 trailerModalOpenEl.addEventListener('click', handleOpenTrailerClick);
 trailerModalCloseEl.addEventListener('click', handleCloseTrailerBtnClick);
