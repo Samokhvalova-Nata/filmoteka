@@ -1,4 +1,4 @@
-import { poster_sizes } from './fetchFromTheMovieDB';
+//import { poster_sizes } from './fetchFromTheMovieDB';
 import { getSome } from './genres';
 import { heightMax } from './withScroll';
 import { api } from './API';
