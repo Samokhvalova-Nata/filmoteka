@@ -1,0 +1,162 @@
+.members-img {
+    width: 100%;
+    align-self: center;
+}
+
+.members-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.185);
+}
+
+.container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+
+
+    @media screen and (min-width: 480px) {
+        max-width: 480px;
+    }
+
+    @media screen and(min-width:768px) {
+        max-width: 768px;
+        padding-right: 32px;
+        padding-left: 32px;
+    }
+
+    @media screen and(min-width:1280px) {
+        max-width: 1280px;
+    }
+}
+.members__backdrop {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.2);
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
+    transition: opacity cubic-bezier(.17, .67, .83, .67) 200,
+        visibility cubic-bezier(.17, .67, .83, .67) 200;
+}
+
+.is-hidden-members {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.members__modal {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 15px;
+    width: 950px;
+    height: 470px;
+    background-image: url('../images/foto/felix-mooneeram-evlkOfkQ5rE-unsplash.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    overflow: hidden;
+
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+        0px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+.swiper-wrapper {
+    padding-inline-start: 0px;
+}
+
+.members__modal-close-btn {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    padding: 0;
+    padding-right: 2px;
+    right: 20px;
+    top: 20px;
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+.members__modal-close-btn:hover,
+.members__modal-close-btn:focus {
+    background-color: #b92f2c;
+}
+
+.modal__close-btn-svg {
+    fill: rgba(255, 255, 255, 1);
+}
+
+.modal-title {
+    text-align: center;
+    font-size: 40px;
+    color: rgba(255, 255, 255, 1);
+    /* 
+        @media screen and (min-width: 480px) {
+            font-size: 30px;
+        }
+    
+        @media screen and(min-width:768px) {
+            font-size: 35px;
+        }
+    
+        @media screen and(min-width:1280px) {
+            font-size: 40px;
+        } */
+}
+
+.members-name,
+.members-descr {
+    color: rgba(255, 255, 255, 1);
+    text-align: center;
+}
+
+div.swiper-button-next,
+div.swiper-button-prev {
+    color: #B92F2C;
+}
+
+.swiper-button-next {
+    text-shadow: 5px 5px 8px #150905;
+}
+
+.swiper-button-prev {
+    text-shadow: -5px 5px 8px #150905;
+}
+
+span.swiper-pagination-bullet {
+    background-color: red;
+    width: 15px;
+    height: 10px;
+}
+
+span.swiper-pagination-bullet-active {
+    background-color: rgba(255, 255, 255, 1);
+}
+
+.icon-svg {
+    fill: rgba(255, 255, 255, 1);
+
+}
+
+.icon-svg:hover {
+    filter: drop-shadow(1px 4px 4px rgba(255, 255, 255, 1));
+}
+
+.socials {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
