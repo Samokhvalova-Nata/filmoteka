@@ -1,10 +1,8 @@
 import Pagination from 'tui-pagination';
-import 'tui-pagination/dist/tui-pagination.css';
 import { api } from './API';
 import { handlePageBtnClick } from './pop-films-loading';
 import { dataQuery } from './query-word-searching';
 import { Report } from 'notiflix/build/notiflix-report-aio';
-import { playSpinner, stopSpinner } from './spinner.js';
 
 const container = document.getElementById('tui-pagination-container');
 
@@ -15,22 +13,22 @@ const prevBtn = document.querySelector('.tui-last-child');
 const nextBtn = document.querySelector('.tui-next');
 let totalCount;
 let totPages;
+let paginationPopular;
+
 function notActive(itemsTotal, pagesTotal) {
   totalCount = itemsTotal;
   totPages = pagesTotal;
   if (totPages < api.page) {
-    playSpinner();
     resetPagination();
     dataQuery((api.page = 1));
-    stopSpinner();
     Report.info(`This query has only ${totPages} pages`, '');
   }
 }
-let paginationPopular;
+
 const options = {
   totalItems: 20000,
   itemsPerPage: 20,
-  visiblePages: 4,
+  visiblePages: 5,
   centerAlign: true,
   page: api.page,
   firstItemClassName: 'tui-first-child',
@@ -55,13 +53,15 @@ const options = {
 };
 
 if (container) {
-   paginationPopular = new Pagination(container, options);
+  paginationPopular = new Pagination(container, options);
   paginationPopular.on('afterMove', event => {
     if (api.query == null) {
-       const paginationPopularTrand = new Pagination(container, options);
+      const paginationPopularTrand = new Pagination(container, options);
 
       paginationPopularTrand.on('afterMove', event => {
-        if (api.page === null) api.page = 1;
+        if (api.page === null) {
+          api.page = 1;
+        };
         api.page = event.page;
         cleanAllGallery();
         handlePageBtnClick();
