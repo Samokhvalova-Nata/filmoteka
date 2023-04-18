@@ -8,4 +8,11 @@ export function heightMax() {
     behavior: 'smooth',
   });
 }
+const scrollUo = document.querySelector('.toTopBtn');
 
+scrollUo.addEventListener('scroll', () => {
+  window.scrollBy({
+    top: 0,
+    behavior: 'smooth',
+  });
+});

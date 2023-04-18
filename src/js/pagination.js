@@ -3,7 +3,6 @@ import { api } from './API';
 import { handlePageBtnClick } from './pop-films-loading';
 import { dataQuery } from './query-word-searching';
 import { Report } from 'notiflix/build/notiflix-report-aio';
-
 const container = document.getElementById('tui-pagination-container');
 
 const galleryEl = document.querySelector('.film__gallery');
