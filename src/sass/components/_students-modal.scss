@@ -15,22 +15,19 @@
     width: 100%;
     margin-left: auto;
     margin-right: auto;
-
-
     @media screen and (min-width: 480px) {
         max-width: 480px;
     }
-
     @media screen and(min-width:768px) {
         max-width: 768px;
         padding-right: 32px;
         padding-left: 32px;
     }
-
     @media screen and(min-width:1280px) {
         max-width: 1280px;
     }
 }
+
 .members__backdrop {
     position: fixed;
     top: 0;
@@ -57,16 +54,28 @@
     left: 50%;
     transform: translate(-50%, -50%);
     padding: 15px;
-    width: 950px;
-    height: 470px;
+    width: 100%;
+    height: 240px;
     background-image: url('../images/foto/felix-mooneeram-evlkOfkQ5rE-unsplash.jpg');
     background-repeat: no-repeat;
     background-size: cover;
-
+    border-radius: 5px;
     overflow: hidden;
 
     box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
         0px 2px 1px rgba(0, 0, 0, 0.2);
+        @media screen and (min-width: 480px) {
+            width: 440px;
+            height: 290px;
+        }
+        @media screen and(min-width:768px) {
+            width: 650px;
+            height: 370px;
+        }
+        @media screen and(min-width:1280px) {
+            width: 950px;
+            height: 530px;
+        }
 }
 
 .swiper-wrapper {
@@ -82,11 +91,15 @@
     position: absolute;
     padding: 0;
     padding-right: 2px;
-    right: 20px;
-    top: 20px;
+    right: 10px;
+    top: 10px;
     border: none;
     cursor: pointer;
     background-color: transparent;
+    @media screen and (min-width: 480px) {
+        right: 20px;
+        top: 20px;
+    }
 }
 
 .members__modal-close-btn:hover,
@@ -100,20 +113,18 @@
 
 .modal-title {
     text-align: center;
-    font-size: 40px;
+    margin-bottom: 15px;
+    font-size: 16px;
     color: rgba(255, 255, 255, 1);
-    /* 
-        @media screen and (min-width: 480px) {
-            font-size: 30px;
-        }
-    
-        @media screen and(min-width:768px) {
-            font-size: 35px;
-        }
-    
-        @media screen and(min-width:1280px) {
-            font-size: 40px;
-        } */
+    @media screen and (min-width: 480px) {
+        font-size: 25px;
+    }
+    @media screen and(min-width:768px) {
+        font-size: 35px;
+    }
+    @media screen and(min-width:1280px) {
+        font-size: 40px;
+    } 
 }
 
 .members-name,
@@ -122,9 +133,41 @@
     text-align: center;
 }
 
-div.swiper-button-next,
-div.swiper-button-prev {
-    color: #B92F2C;
+.members-name {
+    font-size: 8px;
+    @media screen and (min-width: 480px) {
+            font-size: 10px;
+    }
+    @media screen and(min-width:768px) {
+        font-size: 16px;
+    }
+    @media screen and(min-width:1280px) {
+        font-size: 23px;
+    }
+}
+.members-descr {
+    text-align: center;
+    margin: 5px 0;
+    font-size: 7px;
+    color: rgba(255, 255, 255, 1);
+    @media screen and (min-width: 480px) {
+        font-size: 10px;
+    }
+    @media screen and(min-width:768px) {
+        font-size: 15px;
+    }
+    @media screen and(min-width:1280px) {
+        font-size: 18px;
+        margin: 10px 0;
+    }
+}
+
+.members-img {
+    border-radius: 5px;
+}
+
+.members-item {
+    border-radius: 5px;
 }
 
 .swiper-button-next {
@@ -147,7 +190,20 @@ span.swiper-pagination-bullet-active {
 
 .icon-svg {
     fill: rgba(255, 255, 255, 1);
-
+    width: 10px;
+    height: 10px;
+    @media screen and (min-width: 480px) {
+        width: 15px;
+        height: 15px;
+    }
+    @media screen and(min-width:768px) {
+        width: 20px;
+        height: 20px;
+    }
+    @media screen and(min-width:1280px) {
+        width: 30px;
+        height: 30px;
+    }
 }
 
 .icon-svg:hover {
@@ -158,5 +214,11 @@ span.swiper-pagination-bullet-active {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 20px;
+    gap: 10px;
+    @media screen and (min-width: 480px) {
+        gap: 15px;
+    }
+    @media screen and (min-width: 768px) {
+        gap: 20px;
+    }
 }

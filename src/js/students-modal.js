@@ -48,11 +48,3 @@ const swiper = new Swiper('.swiper', {
     disableOnInteraction: false,
   },
 });
-
-
-
-// openModalBtn = document.querySelector('[data-modal-students-open]');
-// closeModalBtn = document.querySelector('[data-members-modal-close-btn]');
-// membersModal = document.querySelector('.members__modal');
-// backdrop = document.querySelector('[data-members-modal]');
-// body = document.querySelector('body')
