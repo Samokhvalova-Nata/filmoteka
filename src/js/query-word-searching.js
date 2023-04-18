@@ -4,6 +4,8 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { pagination } from './pagination.js';
 import { getTemplateCard } from './template-card.js';
 import { api } from './API.js';
+import { playSpinner, stopSpinner } from './spinner.js';
+import { resetPagination, notActive } from './pagination.js';
 
 const IMG_URL = 'https://image.tmdb.org/t/p/w500';
 const DEFAULT_POSTER_URL =
@@ -12,29 +14,36 @@ const galleryEl = document.querySelector('.film__gallery');
 const filmSearchForm = document.querySelector('.search-bar');
 
 filmSearchForm.addEventListener('submit', handleFormSubmit);
-export async function handleFormSubmit(event) {
+export function handleFormSubmit(event) {
   event.preventDefault();
   const query = event.currentTarget.search.value.trim();
+  api.page = 1;
   if (query === '') {
     Notify.failure('Please enter a search query for the movie');
     return;
   }
-
+  api.query = query;
+  resetPagination();
+  dataQuery();
+}
+export async function dataQuery() {
   try {
-    const movies = await api.fetchMovie(1, query);
+    playSpinner();
+    const movies = await api.fetchMovie(api.query);
     if (movies.total_results === 0) {
       Notify.failure('No movies found with the given search query.');
       renderMoviesMarkup(null);
       return;
     }
+    notActive(movies.total_results, movies.total_pages);
     renderMoviesMarkup(movies);
   } catch (error) {
     console.log(error);
   } finally {
     filmSearchForm.reset();
   }
+  stopSpinner();
 }
-
 export function renderMoviesMarkup(response) {
   if (response === null) {
     galleryEl.innerHTML = '';

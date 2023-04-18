@@ -1,26 +1,38 @@
-// FT-07 Реалізувати підвантаження популярних фільмів на головну (першу) сторінку
-import { pagination } from './pagination.js';
+import { poster_sizes } from './fetchFromTheMovieDB';
 import { getSome } from './genres';
 import { heightMax } from './withScroll';
-import { api } from './API.js'
+import { api } from './API';
+import { resetPagination, notActive } from './pagination.js';
 import { getTemplateCard } from './template-card.js';
 
+// import Notiflix from 'notiflix';
+
+// console.log('poster_sizes:', poster_sizes);//TODO:
 const galleryListEl = document.querySelector('.film__gallery');
-const POSTER_SIZE = api.getPosterSize(342);
-
 heightMax();
-handlePageBtnClick(1);
-
-pagination.on('afterMove', () => handlePageBtnClick(pagination._currentPage));
-
-async function handlePageBtnClick(page) {
+//initial fetch for 1st page
+if (galleryListEl) handlePageBtnClick();
+export async function handlePageBtnClick() {
   try {
-    const data = await api.fetchPopMovies(page);
-    galleryListEl.innerHTML = createGalleryCards(data.results, POSTER_SIZE);
-    pagination.setTotalItems(data.total_results);
+    const { data } = await api.fetchPopMovies();
+    makeElements(data.results, api.poster_sizes[3]);
   } catch (error) {
+    //TODO: notification with Notiflix.error
     console.log('ERROR! ', error);
   }
+}
+// ==========>make HTML EL...
+function makeElements(value, size) {
+  cleanAllGallery();
+  galleryListEl.insertAdjacentHTML(
+    'afterbegin',
+    createGalleryCards(value, size)
+  );
+}
+
+// =======================>cleanAllinGallery
+function cleanAllGallery() {
+  galleryListEl.innerHTML = '';
 }
 
 function createGalleryCards(results, poster_size) {
@@ -32,8 +44,8 @@ function createGalleryCards(results, poster_size) {
         release_year: release_date.slice(0, 4),
         poster_path,
         poster_size,
-        id
-      })
+        id,
+      });
     })
     .join('');
 }
