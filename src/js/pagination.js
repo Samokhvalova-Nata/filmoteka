@@ -26,11 +26,12 @@ function notActive(itemsTotal, pagesTotal) {
     Report.info(`This query has only ${totPages} pages`, '');
   }
 }
+let paginationPopular;
 
 const options = {
   totalItems: 20000,
   itemsPerPage: 20,
-  visiblePages: 4,
+  visiblePages: 3,
   centerAlign: true,
   page: api.page,
   firstItemClassName: 'tui-first-child',
@@ -55,13 +56,15 @@ const options = {
 };
 
 if (container) {
-  const paginationPopular = new Pagination(container, options);
+  paginationPopular = new Pagination(container, options);
   paginationPopular.on('afterMove', event => {
     if (api.query == null) {
-      const paginationPopularTrand = new Pagination(container, options);
+      let paginationPopularTrand = new Pagination(container, options);
 
       paginationPopularTrand.on('afterMove', event => {
-        if (api.page === null) api.page = 1;
+        if (api.page === null) {
+          api.page = 1;
+        }
         api.page = event.page;
         cleanAllGallery();
         handlePageBtnClick();

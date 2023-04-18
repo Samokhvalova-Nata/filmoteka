@@ -5,7 +5,7 @@ import { pagination } from './pagination.js';
 import { getTemplateCard } from './template-card.js';
 import { api } from './API.js';
 import { playSpinner, stopSpinner } from './spinner.js';
-import { resetPagination, notActive } from './pagination.js';
+import { notActive, resetPagination } from './pagination.js';
 
 const IMG_URL = 'https://image.tmdb.org/t/p/w500';
 const DEFAULT_POSTER_URL =
@@ -64,9 +64,7 @@ export function renderMoviesMarkup(response) {
             </div>
             <div class="film__info">
               <p class="film__name">${title}</p>
-              <p class="film__ganres">${getSome(
-                genre_ids
-              )} | ${date}</p>
+              <p class="film__ganres">${getSome(genre_ids)} | ${date}</p>
             </div>
         </li>`;
     })

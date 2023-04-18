@@ -2,7 +2,7 @@
 @import './utils/reset';
 @import './utils/common';
 @import './utils/container';
-
+@import './utils/mixin';
 
 @import './components/main-header';
 @import './components/template-card';
@@ -15,4 +15,4 @@
 @import './components/students-modal';
 @import './components/spinner';
 @import './components/widthScroll';
-
+@import './components/pagination';
