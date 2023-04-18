@@ -40,4 +40,4 @@ function getName(id) {
   return genresAll[id] || `Unknown genre(${id})`;
 }
 
-export { genName, getSome };
+export { getName, getSome };
