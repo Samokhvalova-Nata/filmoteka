@@ -1,6 +1,6 @@
 // FT-07 Реалізувати підвантаження популярних фільмів на головну (першу) сторінку
 import { pagination } from './pagination.js';
-import { genres } from './genres';
+import { getSome } from './genres';
 import { heightMax } from './withScroll';
 import { api } from './API.js'
 import { getTemplateCard } from './template-card.js';
@@ -27,10 +27,10 @@ function createGalleryCards(results, poster_size) {
   return results
     .map(({ poster_path, title, genre_ids, release_date, id }) => {
       return getTemplateCard({
-        title,                   
-        genresStr: genres.getSome(genre_ids), 
-        release_year: release_date.slice(0, 4),      
-        poster_path,              
+        title,
+        genresStr: getSome(genre_ids),
+        release_year: release_date.slice(0, 4),
+        poster_path,
         poster_size,
         id
       })
