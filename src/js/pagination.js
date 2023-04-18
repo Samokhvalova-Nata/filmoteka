@@ -7,25 +7,11 @@ import { Report } from 'notiflix/build/notiflix-report-aio';
 const container = document.getElementById('tui-pagination-container');
 
 const galleryEl = document.querySelector('.film__gallery');
-const firstBtn = document.querySelector('.tui-first');
-const lastBtn = document.querySelector('.tui-last ');
-const prevBtn = document.querySelector('.tui-last-child');
-const nextBtn = document.querySelector('.tui-next');
+
 let totalCount;
 let totPages;
-let paginationPopular;
 
-function notActive(itemsTotal, pagesTotal) {
-  totalCount = itemsTotal;
-  totPages = pagesTotal;
-  if (totPages < api.page) {
-    resetPagination();
-    dataQuery((api.page = 1));
-    Report.info(`This query has only ${totPages} pages`, '');
-  }
-}
-
-const options = {
+let options = {
   totalItems: 20000,
   itemsPerPage: 20,
   visiblePages: 5,
@@ -51,22 +37,28 @@ const options = {
       '</a>',
   },
 };
+const firstBtn = document.querySelector('.tui-first');
+const lastBtn = document.querySelector('.tui-last ');
+const prevBtn = document.querySelector('.tui-last-child');
+const nextBtn = document.querySelector('.tui-next');
+function notActive(itemsTotal, pagesTotal) {
+  totalCount = itemsTotal;
+  options.totalItems = itemsTotal;
+  if (pagesTotal < api.page) {
+    resetPagination();
+    dataQuery((api.page = 1));
+    Report.info(`This query has only ${pagesTotal} pages`, '');
+  }
+}
 
+let paginationPopularTrand = new Pagination(container, options);
 if (container) {
-  paginationPopular = new Pagination(container, options);
-  paginationPopular.on('afterMove', event => {
-    if (api.query === null) {
-      const paginationPopularTrand = new Pagination(container, options);
-
-      paginationPopularTrand.on('afterMove', event => {
-        if (api.page === null) {
-          api.page = 1;
-        };
-        api.page = event.page;
-        cleanAllGallery();
-        handlePageBtnClick();
-      });
-    } else {
+  paginationPopularTrand.on('afterMove', event => {
+    if (api.check === false) {
+      api.page = event.page;
+      cleanAllGallery();
+      handlePageBtnClick();
+    } else if (api.check === true) {
       api.page = event.page;
       dataQuery(api.page);
       cleanAllGallery();
@@ -75,8 +67,9 @@ if (container) {
 }
 // =================> for reset of pagination
 function resetPagination() {
-  paginationPopular.reset();
+  paginationPopularTrand.reset();
 }
+
 function cleanAllGallery() {
   galleryEl.innerHTML = ' ';
 }
