@@ -8,3 +8,4 @@ import "./js/add-watched-queue.js";
 import "./js/students-modal.js";
 import "./js/trailer-modal.js";
 // import "./js/spinner.js";
+import "./js/changer-theme.js";
