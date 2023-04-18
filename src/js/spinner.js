@@ -1,13 +1,12 @@
 import { Spinner } from 'spin.js';
-//======== new preloader RANDOM-SET
-window.onload = function () {
-  const preloaderWebsite = document.querySelector('.spinner');
-  setTimeout(function () {
-    preloaderWebsite.classList.add('is-closed');
-  }, 2000);
-};
 
-//=======================spinner async only for form-search!!!
+// window.onload = function () {
+//   const preloaderWebsite = document.querySelector('.spinner');
+//   setTimeout(function () {
+//     preloaderWebsite.classList.add('is-closed');
+//   }, 2000);
+// };
+
 
 const gallery = document.querySelector('.film__gallery');
 gallery.innerHTML = `<div class="spinner-backdrop"></div>`;
