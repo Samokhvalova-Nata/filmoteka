@@ -4,7 +4,7 @@ import { pagination } from './pagination.js';
 import { getTemplateCard } from './template-card.js';
 import { api } from './API.js';
 import { playSpinner, stopSpinner } from './spinner.js';
-import { resetPagination, notActive } from './pagination.js';
+import { notActive } from './pagination.js';
 
 const galleryEl = document.querySelector('.film__gallery');
 const filmSearchForm = document.querySelector('.search-bar');
@@ -21,7 +21,6 @@ export function handleFormSubmit(event) {
   }
   container.classList.remove('visually-hidden');
   api.search = query;
-  resetPagination();
   dataQuery();
 }
 export async function dataQuery() {
@@ -40,7 +39,6 @@ export async function dataQuery() {
     console.log(error);
   } finally {
     filmSearchForm.reset();
-    api.check = true;
   }
   stopSpinner();
 }

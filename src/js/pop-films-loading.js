@@ -2,7 +2,7 @@
 import { getSome } from './genres';
 import { heightMax } from './withScroll';
 import { api } from './API';
-import { resetPagination, notActive } from './pagination.js';
+import { notActive, makePagin } from './pagination.js';
 import { getTemplateCard } from './template-card.js';
 
 // import Notiflix from 'notiflix';
@@ -11,7 +11,9 @@ import { getTemplateCard } from './template-card.js';
 const galleryListEl = document.querySelector('.film__gallery');
 heightMax();
 //initial fetch for 1st page
-if (galleryListEl) handlePageBtnClick();
+if (galleryListEl) {
+  handlePageBtnClick();
+}
 export async function handlePageBtnClick() {
   try {
     const { data } = await api.fetchPopMovies();

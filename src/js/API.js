@@ -16,7 +16,6 @@ class FetchTheMovieDbAPI {
 
   search = null;
   page = 1;
-  check = false;
   async fetchMovie(searchQuery) {
     //update property value if parameter supplied
     if (searchQuery) {
