@@ -1,7 +1,7 @@
 import { getSome } from './genres';
 import { api } from './api';
 
-// let id = 758323;
+// let id;
 // id = evt.target.dataset.id;
 
 const galleryListEl = document.querySelector('[data-movies-list]');
