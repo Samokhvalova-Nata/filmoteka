@@ -45,7 +45,7 @@ function renderCards(data) {
   const movieGenres = getSome(genresId);
   galleryListEl.insertAdjacentHTML(
     'beforeend',
-    `<li class="film__item" data-id=${data.id}>
+    `<li class="film__item" data-id=${data.id}><div class="film__wrap">
     <img
       class="film__poster"
       src="https://image.tmdb.org/t/p/w500${data.poster_path}"
@@ -57,6 +57,7 @@ function renderCards(data) {
       0,
       4
     )}</p>
+    </div>
     </div>
   
 </li>`
