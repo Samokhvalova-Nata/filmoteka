@@ -8,13 +8,6 @@ const container = document.getElementById('tui-pagination-container');
 
 const galleryEl = document.querySelector('.film__gallery');
 
-let totalCount;
-
-const firstBtn = document.querySelector('.tui-first');
-const lastBtn = document.querySelector('.tui-last ');
-const prevBtn = document.querySelector('.tui-last-child');
-const nextBtn = document.querySelector('.tui-next');
-
 // ==========================
 function notActive(itemsTotal, pagesTotal) {
   api.totalCountOfItem = itemsTotal;
