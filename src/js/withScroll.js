@@ -9,3 +9,11 @@ export function heightMax() {
   });
 }
 
+const scrollUo = document.querySelector('.toTopBtn');
+
+scrollUo.addEventListener('click', () => {
+  window.scrollBy({
+    top: 0,
+    behavior: 'smooth',
+  });
+});
