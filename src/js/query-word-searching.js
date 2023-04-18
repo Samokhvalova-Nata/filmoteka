@@ -24,7 +24,6 @@ export function handleFormSubmit(event) {
     return;
   }
   container.classList.remove('visually-hidden');
-
   api.search = query;
   resetPagination();
   dataQuery();
@@ -45,6 +44,7 @@ export async function dataQuery() {
     console.log(error);
   } finally {
     filmSearchForm.reset();
+    api.check = true;
   }
   stopSpinner();
 }
