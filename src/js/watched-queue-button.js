@@ -50,14 +50,14 @@ function renderCards(data) {
       class="film__poster"
       src="https://image.tmdb.org/t/p/w500${data.poster_path}"
       alt=""
-    />
+    /></div>
     <div class="film__info" data-id=${data.id}>
       <p class="film__name">${data.title}</p>
       <p class="film__ganres">${movieGenres} | ${data.release_date.slice(
       0,
       4
     )}</p>
-    </div>
+    
     </div>
   
 </li>`
