@@ -1,27 +1,17 @@
 import { Spinner } from 'spin.js';
-//======== new preloader RANDOM-SET
-window.onload = function () {
-  const preloaderWebsite = document.querySelector('.spinner');
-  setTimeout(function () {
-    preloaderWebsite.classList.add('is-closed');
-  }, 2000);
-};
-const divOfGift = document.querySelector('.tenor-gif-embed');
 
-function randomChangingGifts(arrOfGifts) {
-  const randomIndex = Math.random() * 4;
-  console.log(Math.floor(randomIndex));
-  divOfGift.dataset.postid = arrOfGifts[Math.ceil(randomIndex)];
-}
-randomChangingGifts([10244466, 14744773, 16742947, 16075618, 5323471]);
+// window.onload = function () {
+//   const preloaderWebsite = document.querySelector('.spinner');
+//   setTimeout(function () {
+//     preloaderWebsite.classList.add('is-closed');
+//   }, 2000);
+// };
 
-//=======================spinner async only for form-search!!!
 
-// const gallery = document.querySelector('.film__gallery');
-// console.log(gallery);
-// gallery.innerHTML = `<div class="spinner-backdrop"></div>`;
+const gallery = document.querySelector('.film__gallery');
+gallery.innerHTML = `<div class="spinner-backdrop"></div>`;
 
-const opts = {
+const options = {
   lines: 12, // The number of lines to draw
   length: 25, // The length of each line
   width: 19, // The line thickness
@@ -41,10 +31,9 @@ const opts = {
   className: 'spinner', // The CSS class to assign to the spinner
   position: 'absolute', // Element positioning
 };
-
 let target = document.getElementById('spinContainer');
 const backdrop = document.querySelector('.spinner-backdrop');
-const spinner = new Spinner(opts);
+const spinner = new Spinner(options);
 function playSpinner() {
   backdrop.classList.remove('is-closed');
   spinner.spin(target);
@@ -53,4 +42,5 @@ function stopSpinner() {
   backdrop.classList.add('is-closed');
   spinner.stop();
 }
+
 export { playSpinner, stopSpinner };

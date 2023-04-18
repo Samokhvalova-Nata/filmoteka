@@ -6,7 +6,8 @@ const refs = {
     modal: document.querySelector('[data-modal]'),
     galary: document.querySelector('.film__gallery'),
     filmCard: document.querySelector('.modal__info'),
-    galaryBySearch: document.querySelector('.film__gallery')
+    galaryBySearch: document.querySelector('.film__gallery'),
+    body: document.querySelector('body')
 }
 
 refs.btnCloseModal.addEventListener("click", holderCloseModal);
@@ -19,6 +20,7 @@ async function holderOpenModal(event) {
     const filmId = event.target.dataset.id;
     if (filmId) {
         refs.modal.classList.remove('visually-hidden');
+        refs.body.classList.add('no-scroll')
         try {
             const filmInfo = await api.fetchMovieInfo(filmId);
             refs.filmCard.innerHTML = createModalCards(filmInfo);
@@ -38,16 +40,15 @@ async function holderOpenModal(event) {
 }
 
 function createModalCards({poster_path, original_title, vote_average, vote_count, popularity, genres,
-    overview }) {
+    overview, id }) {
     const genresName = [];
     for (const gener of genres) {
         genresName.push(gener.name);
     }
 
     return `
-            <div class="modal__poster">
-                <img class="modal__poster-img" src="https://image.tmdb.org/t/p/w500${poster_path}">
-                <button class="modal__watch-treller" type="button">Watch the trailer</button>
+            <div class="modal__poster" data-id = ${id}>
+                <img class="modal__poster-img" src="https://image.tmdb.org/t/p/w342${poster_path}">
             </div>
             <div class="modal__info-conteiner">
                 <h2 class="modal__movie-title">
@@ -88,7 +89,7 @@ function createModalCards({poster_path, original_title, vote_average, vote_count
                                 ${original_title}
                             </li>
                             <li class="modal__info-value-item">
-                                ${genresName} 
+                                ${genresName.join(', ')}
                             </li>
                         </ul>
                     </div>
@@ -101,20 +102,6 @@ function createModalCards({poster_path, original_title, vote_average, vote_count
                         ${overview}
                     </p>
                 </div>
-                <div class="modal__buttons">
-                    <ul class="modal__button-list list">
-                        <li class="modal__button-item">
-                            <button class="modal__button-watched" type="button">
-                                add to Watched
-                            </button>
-                        </li>
-                        <li class="modal__button-item">
-                            <button class="modal__button-queue" type="button">
-                                add to queue
-                            </button>
-                        </li>
-                    </ul>
-                </div>
             </div>
     `;
 }
@@ -123,21 +110,24 @@ function createModalCards({poster_path, original_title, vote_average, vote_count
 
 function holderCloseModal(event) {
     refs.modal.classList.add("visually-hidden")
+    refs.body.classList.remove('no-scroll')
 }
 
 function holderCloseByPressBackdrop(event) {
     if (event.target === refs.modal) {
         refs.modal.classList.add("visually-hidden")
+        refs.body.classList.remove('no-scroll')
     }
 }
 
-    window.addEventListener("keydown", handlerEscPrecc);
+    document.addEventListener("keydown", handlerEscPrecc);
 
 function handlerEscPrecc(event) {
-    console.log(event.key)
-    if (event.keyCode === "Escape") {
+    // console.log(event.key)
+    if (event.code === "Escape") {
         refs.modal.classList.add("visually-hidden")
+        refs.body.classList.remove('no-scroll')
     }
-    window.removeEventListener("keydown", handlerEscPrecc);
+    document.removeEventListener("keydown", handlerEscPrecc);
 }
 

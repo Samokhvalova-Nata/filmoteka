@@ -62,7 +62,10 @@
 .is-closed {
   display: none;
 }
-
+.is-hidden {
+  display: none;
+  overflow: hidden;
+}
 /* ======================== window loader */
 .tenor-gif-embed {
   width: 200px;

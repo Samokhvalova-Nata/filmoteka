@@ -2,15 +2,22 @@
     position: relative;
     margin-top: 76px;
     max-width: 420px;
+    max-height: calc(100% - 76px);
+    overflow-y: auto;
     display: flex;
     flex-direction: column;
     background-color: var(--primary-white-color);
         @media screen and(min-width:768px) {
-            max-width: 704px;
+            margin-top: 222px;
             padding: 0 36px;
+            max-width: 704px;
+            max-height: 552px;
+            overflow-y: hidden;
         }
         @media screen and(min-width:1280px) {
             max-width: 806px;
+            max-height: 558px;
+            margin-top: 217px;
             padding: 0 12px;
         }
 }
@@ -45,7 +52,7 @@
             flex-direction: row;
             gap: 68px;
             margin-top: 50px;
-            margin-bottom: 12px;
+            margin-bottom: 112px;
         }
         @media screen and(min-width:1280px) {
             gap: 16px;
@@ -67,8 +74,19 @@
 
 .modal__poster-img {
     border-radius: 5px;
-    height: 100%;
+    height: 357px;
+    width: 240px;
     object-fit: cover;
+    margin: 0 auto;
+    @media screen and(min-width:768px) {
+        height: 374px;
+        width: 264px;
+    }
+    
+    @media screen and(min-width:1280px) {
+        height: 478px;
+        width: 375px;
+    }
 }
 
 .modal__watch-treller {
@@ -131,9 +149,15 @@
     gap: 41px;
     font-size: 12px;
     line-height: 1.33;
+            @media screen and(min-width:768px) {
+                gap: 39px;
+                }
         @media screen and(min-width:1280px) {
             gap: 83px;
         }
+}
+.modal__info-name-list {
+    width: 70px;
 }
 
 .modal__info-name-item {
@@ -144,6 +168,8 @@
 .modal__info-value-item {
     color: #000000;
     margin-bottom: 8px;
+    max-height: 16px;
+    overflow-y: auto;
 }
 .modal__span-vote, .modal__span-votes {
     border-radius: 100px;
@@ -158,6 +184,17 @@
 }
 .modal__span-votes {
     background-color: var(--footer-color);
+}
+.modal__about {
+    max-height: 236px;
+    overflow-y: auto;
+            @media screen and(min-width:768px) {
+    max-height: 220px;
+                }
+            
+                @media screen and(min-width:1280px) {
+    max-height: 160px;
+                }
 }
 
 .modal__about-title {
@@ -179,10 +216,15 @@
     margin-top: 20px;
     margin-bottom: 40px;
         @media screen and(min-width:768px) {
-            margin-bottom: 64px;
+            margin-top: 0px;
+            position: absolute;
+            top: 450px;
+            left: 370px;
+            margin-bottom: 0px;
         }    
         @media screen and(min-width:1280px) {
-            margin-bottom: 113px;
+            top: 425px;
+            left: 405px;
         }
 }
 

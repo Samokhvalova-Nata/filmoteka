@@ -1,6 +1,6 @@
-import { fetchMovieInfo } from './fetchFromTheMovieDB';
-import { getTemplateCard } from './template-card';
-import { genres } from './genres';
+//TODO: import { fetchMovieInfo } from './fetchFromTheMovieDB';
+//TODO: not used import { getTemplateCard } from './template-card';
+import { getSome } from './genres';
 
 const API_KEY = '7fc57a32bb8b4747bafc97bb7301e33f';
 const BASE_URL = 'https://api.themoviedb.org';
@@ -13,9 +13,9 @@ const watchedGalleryEl = document.querySelector('[data-watched]');
 const queueGalleryEl = document.querySelector('[data-queue]');
 const libraryGalleryEl = document.querySelector('[data-library]');
 
-watchedGalleryEl.addEventListener('click', renderWatchedGallery);
-queueGalleryEl.addEventListener('click', renderQueueGallery);
-window.addEventListener('load', renderWatchedGallery);
+// watchedGalleryEl.addEventListener('click', renderWatchedGallery);
+// queueGalleryEl.addEventListener('click', renderQueueGallery);
+// window.addEventListener('load', renderWatchedGallery);
 
 function renderWatchedGallery() {
   watchedGalleryEl.classList.add('active');
@@ -47,7 +47,7 @@ function renderGalleryFromLocaleStorage(key) {
 
 function renderWatchedCards(data) {
   const genresId = data.genres.map(el => el.id);
-  const movieGenres = genres.getSome(genresId);
+  const movieGenres = getSome(genresId);
   galleryListEl.insertAdjacentHTML(
     'beforeend',
     `<li class="film__item" id=${data.id}>

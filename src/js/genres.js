@@ -1,51 +1,43 @@
 //OD - class for Genres: methods getSome(idArr) and getAll(idArr) to be used for obtaining genres string for cards
 
-import { fetchGenres } from './fetchFromTheMovieDB';
+const genresAll = {
+  12: 'Adventure',
+  14: 'Fantasy',
+  16: 'Animation',
+  18: 'Drama',
+  27: 'Horror',
+  28: 'Action',
+  35: 'Comedy',
+  36: 'History',
+  37: 'Western',
+  53: 'Thriller',
+  80: 'Crime',
+  99: 'Documentary',
+  878: 'Science Fiction',
+  9648: 'Mystery',
+  10402: 'Music',
+  10749: 'Romance',
+  10751: 'Family',
+  10752: 'War',
+  10770: 'TV Movie',
+};
 
-class Genres {
-  #genresAll;
+function getSome(idArr) {
+ 
+  const len = idArr.length;
+  if (len === 0) return '';
 
-  constructor() {
-    this.#genresAll = {};
-    this.fill();
+  let n = [];
+  for (let i = 0; i < Math.min(2, len); i += 1) {
+    n.push(getName(idArr[i]));
   }
+  if (len > 2) n.push('Other');
 
-  getName(id) {
-    // console.log(this.#genresAll);
-    return this.#genresAll[id] || `Unknown genre(${id})`;
-  }
-
-  getSome(idArr) {
-    const len = idArr.length;
-    if (len === 0) return '';
-
-    let n = [];
-    for (let i = 0; i < Math.min(2, len); i += 1) {
-      n.push(genres.getName(idArr[i]));
-    }
-    if (len > 2) n.push('Other');
-
-    return n.join(', ');
-  }
-
-  getAll(idArr) {
-    if (idArr.length === 0) return '';
-
-    return idArr.map(e => genres.getName(e)).join(', ');
-  }
-
-  async fill() {
-    try {
-      const { genres } = await fetchGenres();
-      //  console.log('fill Genres:', genres);
-      genres.forEach(element => {
-        this.#genresAll[element.id] = element.name;
-      });
-    } catch (error) {
-      //TODO: notification with Notiflix.error
-      console.log('ERROR! ', error);
-    }
-  }
+  return n.join(', ');
 }
 
-export const genres = new Genres();
+function getName(id) {
+  return genresAll[id] || `Unknown genre(${id})`;
+}
+
+export { getName, getSome };
