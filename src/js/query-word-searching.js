@@ -12,6 +12,7 @@ const DEFAULT_POSTER_URL =
   'https://motivatevalmorgan.com/wp-content/uploads/2016/06/default-movie.jpg';
 const galleryEl = document.querySelector('.film__gallery');
 const filmSearchForm = document.querySelector('.search-bar');
+const container = document.getElementById('tui-pagination-container');
 
 filmSearchForm.addEventListener('submit', handleFormSubmit);
 export function handleFormSubmit(event) {
@@ -22,6 +23,8 @@ export function handleFormSubmit(event) {
     Notify.failure('Please enter a search query for the movie');
     return;
   }
+  container.classList.remove('visually-hidden');
+
   api.search = query;
   resetPagination();
   dataQuery();
@@ -33,6 +36,7 @@ export async function dataQuery() {
     if (movies.total_results === 0) {
       Notify.failure('No movies found with the given search query.');
       renderMoviesMarkup(null);
+      container.classList.add('visually-hidden');
       return;
     }
     notActive(movies.total_results, movies.total_pages);
