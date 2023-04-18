@@ -1,30 +1,23 @@
-//TODO: import { fetchMovieInfo } from './fetchFromTheMovieDB';
-//TODO: not used import { getTemplateCard } from './template-card';
 import { getSome } from './genres';
+import { api } from './api';
 
-const API_KEY = '7fc57a32bb8b4747bafc97bb7301e33f';
-const BASE_URL = 'https://api.themoviedb.org';
+// let id = 758323;
+// id = evt.target.dataset.id;
 
-const id = 76600;
-
-const galleryEl = document.querySelector('.library-gallery');
 const galleryListEl = document.querySelector('[data-movies-list]');
 const watchedGalleryEl = document.querySelector('[data-watched]');
 const queueGalleryEl = document.querySelector('[data-queue]');
-const libraryGalleryEl = document.querySelector('[data-library]');
 
-// watchedGalleryEl.addEventListener('click', renderWatchedGallery);
-// queueGalleryEl.addEventListener('click', renderQueueGallery);
-// window.addEventListener('load', renderWatchedGallery);
+window.addEventListener('load', renderWatchedGallery);
+watchedGalleryEl.addEventListener('click', renderWatchedGallery);
+queueGalleryEl.addEventListener('click', renderQueueGallery);
 
 function renderWatchedGallery() {
   watchedGalleryEl.classList.add('active');
-  //   queueGalleryEl.classList.toggle('active');
   renderGalleryFromLocaleStorage('watched');
 }
 
 function renderQueueGallery() {
-  //   queueGalleryEl.classList.toggle('active');
   watchedGalleryEl.classList.remove('active');
   renderGalleryFromLocaleStorage('queue');
 }
@@ -36,35 +29,37 @@ function renderGalleryFromLocaleStorage(key) {
   if (localeStorageMovies !== null) {
     localeStorageMovies.forEach(async el => {
       try {
-        const data = await fetchMovieInfo(el);
-        renderWatchedCards(data);
+        const data = await api.fetchMovieInfo(el);
+        renderCards(data);
       } catch (error) {
         console.warn(error);
       }
     });
+  } else {
+    console.log('oooops, nothing');
   }
 }
 
-function renderWatchedCards(data) {
+function renderCards(data) {
   const genresId = data.genres.map(el => el.id);
   const movieGenres = getSome(genresId);
   galleryListEl.insertAdjacentHTML(
     'beforeend',
-    `<li class="film__item" id=${data.id}>
-  <a class="film__item-link link" href="#">
+    `<li class="film__item" data-id=${data.id}><div class="film__wrap">
     <img
       class="film__poster"
       src="https://image.tmdb.org/t/p/w500${data.poster_path}"
       alt=""
     />
-    <div class="film__info">
+    <div class="film__info" data-id=${data.id}>
       <p class="film__name">${data.title}</p>
       <p class="film__ganres">${movieGenres} | ${data.release_date.slice(
       0,
       4
     )}</p>
     </div>
-  </a>
+    </div>
+  
 </li>`
   );
 }
