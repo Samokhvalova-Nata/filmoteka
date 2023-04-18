@@ -58,7 +58,7 @@ if (container) {
    paginationPopular = new Pagination(container, options);
   paginationPopular.on('afterMove', event => {
     if (api.query == null) {
-       paginationPopularTrand = new Pagination(container, options);
+       const paginationPopularTrand = new Pagination(container, options);
 
       paginationPopularTrand.on('afterMove', event => {
         if (api.page === null) api.page = 1;
