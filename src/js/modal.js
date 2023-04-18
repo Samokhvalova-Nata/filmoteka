@@ -13,6 +13,8 @@ refs.btnCloseModal.addEventListener("click", holderCloseModal);
 refs.modal.addEventListener("click", holderCloseByPressBackdrop);
 refs.galary.addEventListener('click', holderOpenModal);
 
+const modalTheme = document.querySelector('.modal__movie');
+
 async function holderOpenModal(event) {
     const filmId = event.target.dataset.id;
     if (filmId) {
@@ -20,6 +22,15 @@ async function holderOpenModal(event) {
         try {
             const filmInfo = await api.fetchMovieInfo(filmId);
             refs.filmCard.innerHTML = createModalCards(filmInfo);
+
+            const modalDark = document.body.classList.contains('darkTheme');
+            if (modalDark) {
+              modalTheme.classList.add('darkModal');
+              modalTheme.classList.remove('ligthModal');
+            } else {
+              modalTheme.classList.remove('darkModal');
+              modalTheme.classList.add('ligthModal');
+            }
         } catch (error) {
     console.log('ERROR! ', error);
         }

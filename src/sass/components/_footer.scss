@@ -53,3 +53,16 @@
   .heart-anim {
     animation: hideshow 1.5s ease infinite;
   }
+
+
+  body.darkTheme {
+            
+    .footer {
+      background-color: #413e3e;
+      color: #ece7e7;
+    }
+
+    .footer-link {
+      color: #ece7e7;
+    }
+  }
