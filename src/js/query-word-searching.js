@@ -8,6 +8,7 @@ import { resetPagination, notActive } from './pagination.js';
 
 const galleryEl = document.querySelector('.film__gallery');
 const filmSearchForm = document.querySelector('.search-bar');
+const container = document.getElementById('tui-pagination-container');
 
 filmSearchForm.addEventListener('submit', handleFormSubmit);
 export function handleFormSubmit(event) {
@@ -18,17 +19,19 @@ export function handleFormSubmit(event) {
     Notify.failure('Please enter a search query for the movie');
     return;
   }
-  api.query = query;
+  container.classList.remove('visually-hidden');
+  api.search = query;
   resetPagination();
   dataQuery();
 }
 export async function dataQuery() {
   try {
     playSpinner();
-    const movies = await api.fetchMovie(api.query);
+    const movies = await api.fetchMovie(api.search);
     if (movies.total_results === 0) {
       Notify.failure('No movies found with the given search query.');
       renderMoviesMarkup(null);
+      container.classList.add('visually-hidden');
       return;
     }
     notActive(movies.total_results, movies.total_pages);
@@ -37,6 +40,7 @@ export async function dataQuery() {
     console.log(error);
   } finally {
     filmSearchForm.reset();
+    api.check = true;
   }
   stopSpinner();
 }

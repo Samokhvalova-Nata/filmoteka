@@ -6,13 +6,6 @@ window.onload = function () {
     preloaderWebsite.classList.add('is-closed');
   }, 2000);
 };
-const divOfGift = document.querySelector('.tenor-gif-embed');
-
-function randomChangingGifts(arrOfGifts) {
-  const randomIndex = Math.random() * 4;
-  divOfGift.dataset.postid = arrOfGifts[Math.ceil(randomIndex)];
-}
-randomChangingGifts([10244466, 14744773, 16742947, 16075618, 5323471]);
 
 //=======================spinner async only for form-search!!!
 
