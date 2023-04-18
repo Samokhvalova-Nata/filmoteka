@@ -9,8 +9,8 @@ const trailerModalOpenEl = document.querySelector('.modal__watch-treller');
 const movieModalEl = document.querySelector('.modal__movie');
 const iframeEl = document.querySelector('[data-iframe]');
 
-trailerModalOpenEl.addEventListener('click', handleOpenTrailerClick);
-trailerModalCloseEl.addEventListener('click', handleCloseTrailerBtnClick);
+// trailerModalOpenEl.addEventListener('click', handleOpenTrailerClick);
+// trailerModalCloseEl.addEventListener('click', handleCloseTrailerBtnClick);
 
 function handleOpenTrailerClick() {
   renderTrailerModal(movieId);

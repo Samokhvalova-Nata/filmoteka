@@ -26,7 +26,7 @@ function notActive(itemsTotal, pagesTotal) {
     Report.info(`This query has only ${totPages} pages`, '');
   }
 }
-
+let paginationPopular;
 const options = {
   totalItems: 20000,
   itemsPerPage: 20,
@@ -55,10 +55,10 @@ const options = {
 };
 
 if (container) {
-  const paginationPopular = new Pagination(container, options);
+   paginationPopular = new Pagination(container, options);
   paginationPopular.on('afterMove', event => {
     if (api.query == null) {
-      const paginationPopularTrand = new Pagination(container, options);
+       paginationPopularTrand = new Pagination(container, options);
 
       paginationPopularTrand.on('afterMove', event => {
         if (api.page === null) api.page = 1;

@@ -1,6 +1,3 @@
-// render gallery==============work with function async==
-
-// ==============now in the js file =>pop-films-loading !!!
 const galleryListEl = document.querySelector('.film__gallery');
 
 export function heightMax() {
@@ -11,5 +8,4 @@ export function heightMax() {
     behavior: 'smooth',
   });
 }
-// SCROLL SMOOTH====== AND will work with function async in the form===========
-// !!!!!!!!!!!!!!!!!!!!!!!
+

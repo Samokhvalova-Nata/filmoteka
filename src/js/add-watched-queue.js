@@ -7,9 +7,9 @@ const addWatchedEl = document.querySelector('.modal__button-watched');
 const addQueueEl = document.querySelector('.modal__button-queue');
 const galleryCard = document.querySelector('.film__gallery');
 
-addWatchedEl.addEventListener('click', toggleFilmToWatchedStorage);
-addQueueEl.addEventListener('click', toggleFilmToQueueStorage);
-galleryCard.addEventListener('click', checkStorageKeys);
+// addWatchedEl.addEventListener('click', toggleFilmToWatchedStorage);
+// addQueueEl.addEventListener('click', toggleFilmToQueueStorage);
+// galleryCard.addEventListener('click', checkStorageKeys);
 
 function toggleFilmToWatchedStorage() {
   if (addWatchedEl.textContent === 'Remove from watched') {
