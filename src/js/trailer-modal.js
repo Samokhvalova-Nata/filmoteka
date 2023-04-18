@@ -1,22 +1,33 @@
 const API_KEY = '7fc57a32bb8b4747bafc97bb7301e33f';
 const BASE_API = 'https://api.themoviedb.org';
 
-const movieId = 948713;
+const refs = {
+  trailerModalClose: document.querySelector('[data-trailer-close]'),
+  trailerModal: document.querySelector('[data-trailer-modal]'),
+  trailerModalOpen: document.querySelector('.modal__watch-treller'),
+  movieModal: document.querySelector('.modal__movie'),
+  iframe: document.querySelector('[data-iframe]'),
+  galleryCard: document.querySelector('.film__gallery'),
+};
 
-const trailerModalCloseEl = document.querySelector('[data-trailer-close]');
-const trailerModalEl = document.querySelector('[data-trailer-modal]');
-const trailerModalOpenEl = document.querySelector('.modal__watch-treller');
-const movieModalEl = document.querySelector('.modal__movie');
-const iframeEl = document.querySelector('[data-iframe]');
+let movieId;
 
-// trailerModalOpenEl.addEventListener('click', handleOpenTrailerClick);
-// trailerModalCloseEl.addEventListener('click', handleCloseTrailerBtnClick);
+refs.trailerModalOpen.addEventListener('click', handleOpenTrailerClick);
+refs.trailerModalClose.addEventListener('click', handleCloseTrailerBtnClick);
+refs.galleryCard.addEventListener('click', addMovieId);
+
+function addMovieId(evt) {
+  movieId = evt.target.dataset.id;
+  refs.trailerModalOpen.classList.remove('visually-hidden');
+  refs.iframe.innerHTML = ' ';
+  renderTrailerModal(movieId);
+}
 
 function handleOpenTrailerClick() {
   renderTrailerModal(movieId);
-  trailerModalEl.classList.toggle('visually-hidden');
-  movieModalEl.classList.toggle('visually-hidden');
-  trailerModalEl.addEventListener('click', handleBackdropClick);
+  refs.trailerModal.classList.toggle('visually-hidden');
+  refs.movieModal.classList.toggle('visually-hidden');
+  refs.trailerModal.addEventListener('click', handleBackdropClick);
   document.addEventListener('keydown', handleEscapeClick);
 }
 
@@ -40,9 +51,9 @@ function handleCloseTrailerBtnClick() {
 }
 
 function toggleModal() {
-  iframeEl.innerHTML = ' ';
-  movieModalEl.classList.toggle('visually-hidden');
-  trailerModalEl.classList.toggle('visually-hidden');
+  refs.iframe.innerHTML = ' ';
+  refs.movieModal.classList.toggle('visually-hidden');
+  refs.trailerModal.classList.toggle('visually-hidden');
   document.addEventListener('keydown', handleEscapeClick);
 }
 
@@ -52,12 +63,22 @@ function onFetchError(err) {
 
 function findOfficialTrailer(data) {
   let key;
+
   data.results.forEach(el => {
-    if (el.name === 'Official Trailer' || el.name === 'Official Trailer 1') {
+    if (
+      el.name === 'Official Trailer' ||
+      el.name === 'Official Trailer 1' ||
+      el.name === 'Trailer' ||
+      el.name === 'Official International Trailer'
+    ) {
       key = el.key;
     }
   });
-  iframeEl.insertAdjacentHTML(
+  if (key === undefined) {
+    refs.trailerModalOpen.classList.add('visually-hidden');
+  }
+
+  refs.iframe.insertAdjacentHTML(
     'beforeend',
     `<iframe
           class="trailer__iframe"
@@ -82,6 +103,7 @@ async function fetchMovieTrailer(id) {
 }
 
 async function renderTrailerModal(id) {
+  refs.iframe.innerHTML = ' ';
   return await fetchMovieTrailer(id)
     .then(findOfficialTrailer)
     .catch(onFetchError);
