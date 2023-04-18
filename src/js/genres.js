@@ -23,7 +23,7 @@ const genresAll = {
 };
 
 function getSome(idArr) {
-  console.log(idArr);
+  //console.log(idArr);
   const len = idArr.length;
   if (len === 0) return '';
 
