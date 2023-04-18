@@ -38,6 +38,16 @@
     /* border-width: 1px 0; */
 }
 
+.tui-pagination .tui-first,
+.tui-pagination .tui-last {
+    display: none;
+
+    @media screen and(min-width: 480px) {
+        /*або 768px */
+        display: inline-block;
+    }
+}
+
 .tui-pagination .tui-page-btn:hover {
     background-color: #f4f4f4;
     border-radius: 5px;
@@ -218,3 +228,4 @@
     padding: 14px 0 14px;
     vertical-align: top
 }
+

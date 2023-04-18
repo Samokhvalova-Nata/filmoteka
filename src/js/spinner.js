@@ -17,7 +17,6 @@ randomChangingGifts([10244466, 14744773, 16742947, 16075618, 5323471]);
 //=======================spinner async only for form-search!!!
 
 const gallery = document.querySelector('.film__gallery');
-//console.log(gallery);
 gallery.innerHTML = `<div class="spinner-backdrop"></div>`;
 
 const options = {

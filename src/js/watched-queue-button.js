@@ -13,9 +13,9 @@ const watchedGalleryEl = document.querySelector('[data-watched]');
 const queueGalleryEl = document.querySelector('[data-queue]');
 const libraryGalleryEl = document.querySelector('[data-library]');
 
-watchedGalleryEl.addEventListener('click', renderWatchedGallery);
-queueGalleryEl.addEventListener('click', renderQueueGallery);
-window.addEventListener('load', renderWatchedGallery);
+// watchedGalleryEl.addEventListener('click', renderWatchedGallery);
+// queueGalleryEl.addEventListener('click', renderQueueGallery);
+// window.addEventListener('load', renderWatchedGallery);
 
 function renderWatchedGallery() {
   watchedGalleryEl.classList.add('active');
