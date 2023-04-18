@@ -1,5 +1,4 @@
 import Pagination from 'tui-pagination';
-import 'tui-pagination/dist/tui-pagination.css';
 import { api } from './API';
 import { handlePageBtnClick } from './pop-films-loading';
 import { dataQuery } from './query-word-searching';
@@ -27,7 +26,7 @@ function notActive(itemsTotal, pagesTotal) {
   }
 }
 let paginationPopular;
-
+api.page = 1;
 const options = {
   totalItems: 20000,
   itemsPerPage: 20,
@@ -54,7 +53,6 @@ const options = {
       '</a>',
   },
 };
-
 if (container) {
   paginationPopular = new Pagination(container, options);
   paginationPopular.on('afterMove', event => {
