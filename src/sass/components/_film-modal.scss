@@ -8,14 +8,16 @@
     flex-direction: column;
     background-color: var(--primary-white-color);
         @media screen and(min-width:768px) {
-            max-width: 704px;
+            margin-top: 222px;
             padding: 0 36px;
+            max-width: 704px;
             max-height: 552px;
             overflow-y: hidden;
         }
         @media screen and(min-width:1280px) {
             max-width: 806px;
             max-height: 558px;
+            margin-top: 217px;
             padding: 0 12px;
         }
 }
@@ -147,9 +149,15 @@
     gap: 41px;
     font-size: 12px;
     line-height: 1.33;
+            @media screen and(min-width:768px) {
+                gap: 39px;
+                }
         @media screen and(min-width:1280px) {
             gap: 83px;
         }
+}
+.modal__info-name-list {
+    width: 70px;
 }
 
 .modal__info-name-item {
@@ -160,6 +168,8 @@
 .modal__info-value-item {
     color: #000000;
     margin-bottom: 8px;
+    max-height: 16px;
+    overflow-y: auto;
 }
 .modal__span-vote, .modal__span-votes {
     border-radius: 100px;
@@ -174,6 +184,17 @@
 }
 .modal__span-votes {
     background-color: var(--footer-color);
+}
+.modal__about {
+    max-height: 236px;
+    overflow-y: auto;
+            @media screen and(min-width:768px) {
+    max-height: 220px;
+                }
+            
+                @media screen and(min-width:1280px) {
+    max-height: 160px;
+                }
 }
 
 .modal__about-title {
