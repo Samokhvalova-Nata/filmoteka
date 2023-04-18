@@ -5,7 +5,7 @@ import { pagination } from './pagination.js';
 import { getTemplateCard } from './template-card.js';
 import { api } from './API.js';
 import { playSpinner, stopSpinner } from './spinner.js';
-import { resetPagination, notActive } from './pagination.js';
+import { notActive } from './pagination.js';
 
 const IMG_URL = 'https://image.tmdb.org/t/p/w500';
 const DEFAULT_POSTER_URL =
@@ -25,7 +25,6 @@ export function handleFormSubmit(event) {
   }
   container.classList.remove('visually-hidden');
   api.search = query;
-  resetPagination();
   dataQuery();
 }
 export async function dataQuery() {
@@ -44,7 +43,6 @@ export async function dataQuery() {
     console.log(error);
   } finally {
     filmSearchForm.reset();
-    api.check = true;
   }
   stopSpinner();
 }

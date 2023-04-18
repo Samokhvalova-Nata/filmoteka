@@ -7,45 +7,59 @@ import { Report } from 'notiflix/build/notiflix-report-aio';
 const container = document.getElementById('tui-pagination-container');
 
 const galleryEl = document.querySelector('.film__gallery');
+let paginationSearch;
+let paginationPopularTrand;
+// ==========================
+function notActive(itemsTotal) {
+  // resetPagination();
+  paginationSearch = new Pagination(container, {
+    totalItems: itemsTotal,
+    itemsPerPage: 20,
+    visiblePages: 5,
+    centerAlign: true,
+    page: api.page,
+    firstItemClassName: 'tui-first-child',
+    lastItemClassName: 'tui-last-child',
+  });
+  go(paginationSearch);
+}
+function go(value) {
+  value.on('beforeMove', event => {
+    api.page = event.page;
+    dataQuery(api.page);
+    cleanAllGallery();
+  });
+}
 
 // ==========================
-function notActive(itemsTotal, pagesTotal) {
-  api.totalCountOfItem = itemsTotal;
-  let paginationPopularTrand = new Pagination(container, {
-    totalItems: api.totalCountOfItem,
+if (api.search == null) makePagin();
+function makePagin() {
+  paginationPopularTrand = new Pagination(container, {
+    totalItems: 20000,
     itemsPerPage: 20,
-    visiblePages: 3,
+    visiblePages: 5,
     centerAlign: true,
   });
-}
-// ==========================
-let paginationPopularTrand = new Pagination(container, {
-  totalItems: 20000,
-  itemsPerPage: 20,
-  visiblePages: 3,
-  centerAlign: true,
-});
-// ==========================
-if (container) {
-  paginationPopularTrand.on('afterMove', event => {
-    if (api.check === false) {
-      api.page = event.page;
+  // ==========================
+  if (container) {
+    paginationPopularTrand.on('afterMove', e => {
+      api.page = e.page;
+
       cleanAllGallery();
       handlePageBtnClick();
-    } else if (api.check === true) {
-      api.page = event.page;
-      dataQuery(api.page);
-      cleanAllGallery();
-    }
-  });
-}
-// =================> for reset of pagination
-function resetPagination() {
-  paginationPopularTrand.reset();
+    });
+  }
 }
 
+// =================> for reset of pagination
+// function resetPagination() {
+//   paginationPopularTrand.reset();
+// }
+// function resetPaginationSearch() {
+//   paginationSearch.reset();
+// }
 function cleanAllGallery() {
   galleryEl.innerHTML = ' ';
 }
 
-export { resetPagination, notActive };
+export { notActive, makePagin };
