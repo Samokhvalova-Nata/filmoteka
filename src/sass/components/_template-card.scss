@@ -3,19 +3,16 @@ img {
 }
 
 .film {
-
   &__item {
     border-radius: 5px;
     list-style: none;
     flex-basis: 100%;
     max-width: 100%;
     transition: var(--transition);
-
     &:hover,
     &:focus {
       box-shadow: var(--card-shadow);
       transform: scale(1.02);
-
       .film__poster {
         border-bottom-left-radius: 0px;
         border-bottom-right-radius: 0px;
@@ -24,9 +21,16 @@ img {
   }
 
   &__poster {
+    object-fit: cover;
     border-radius: 5px;
-    margin-bottom: 10px;
+    display: block;
+    width: 100%;
+    height: 100%;
     transition: var(--transition);
+  }
+
+  &__wrap {
+    margin-bottom: 10px;
   }
 
   &__info {
@@ -47,13 +51,10 @@ img {
   }
 }
 
-
-
 // tablet - 768px
+
 @media (min-width: 768px) and (max-width: 1279px) {
-
   .film {
-
     &__item {
       flex-basis: calc((100% - 32px) / 2);
     }
@@ -66,14 +67,16 @@ img {
       line-height: 1.33;
     }
 
+    &__wrap {
+      height: 455px;
+      margin-bottom: 8px;
+    }
   }
-
-
 }
 
 // laptop - 1280px
-@media screen and (min-width: 1280px) {
 
+@media screen and (min-width: 1280px) {
   .film {
     &__item {
       flex-basis: calc((100% - 32px) / 3);
@@ -86,6 +89,10 @@ img {
     &__info {
       font-size: 20px;
       line-height: 1.2;
+    }
+    &__wrap {
+      height: 574px;
+      margin-bottom: 12px;
     }
   }
 }
