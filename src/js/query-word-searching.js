@@ -1,4 +1,4 @@
-import { genres } from './genres.js';
+import { getSome } from './genres.js';
 import axios from 'axios';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { pagination } from './pagination.js';
@@ -57,17 +57,17 @@ export function renderMoviesMarkup(response) {
       const posterUrl = poster_path
         ? `${IMG_URL}${poster_path}`
         : DEFAULT_POSTER_URL;
-      return `  
-        <li class="film__item">    
-            <div class="film-card__img">   
-              <img src="${posterUrl}" alt="${title}" loading="lazy" data-id="${id}"/>   
-            </div>   
-            <div class="film__info">   
-              <p class="film__name">${title}</p>   
-              <p class="film__ganres">${genres.getSome(
+      return `
+        <li class="film__item">
+            <div class="film-card__img">
+              <img src="${posterUrl}" alt="${title}" loading="lazy" data-id="${id}"/>
+            </div>
+            <div class="film__info">
+              <p class="film__name">${title}</p>
+              <p class="film__ganres">${getSome(
                 genre_ids
-              )} | ${date}</p>   
-            </div>  
+              )} | ${date}</p>
+            </div>
         </li>`;
     })
     .join('');
