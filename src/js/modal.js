@@ -1,5 +1,4 @@
 import { api } from './API.js';
-import { handlePageBtnClick } from './pop-films-loading';
 
 const refs = {
     btnCloseModal: document.querySelector('[data-modal-close]'),
@@ -16,6 +15,7 @@ refs.galary.addEventListener('click', holderOpenModal);
 
 async function holderOpenModal(event) {
     const filmId = event.target.dataset.id;
+    document.addEventListener("keydown", handlerEscPrecc);
     if (filmId) {
         refs.modal.classList.remove('visually-hidden');
         refs.body.classList.add('no-scroll')
@@ -37,7 +37,7 @@ function createModalCards({poster_path, original_title, vote_average, vote_count
 
     return `
             <div class="modal__poster" data-id = ${id}>
-                <img class="modal__poster-img" src="https://image.tmdb.org/t/p/w342${poster_path}">
+                <img class="modal__poster-img" src="https://image.tmdb.org/t/p/w342${poster_path}" alt="film poster">
             </div>
             <div class="modal__info-conteiner">
                 <h2 class="modal__movie-title">
@@ -95,8 +95,6 @@ function createModalCards({poster_path, original_title, vote_average, vote_count
     `;
 }
 
-    
-
 function holderCloseModal(event) {
     refs.modal.classList.add("visually-hidden")
     refs.body.classList.remove('no-scroll')
@@ -109,10 +107,8 @@ function holderCloseByPressBackdrop(event) {
     }
 }
 
-    document.addEventListener("keydown", handlerEscPrecc);
 
 function handlerEscPrecc(event) {
-    // console.log(event.key)
     if (event.code === "Escape") {
         refs.modal.classList.add("visually-hidden")
         refs.body.classList.remove('no-scroll')
