@@ -1,6 +1,6 @@
 import { refs } from './refs';
 import { getSome } from './genres';
-import { api } from './api';
+import { api } from './API';
 
 // let id;
 // id = evt.target.dataset.id;

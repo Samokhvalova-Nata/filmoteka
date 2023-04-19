@@ -2,7 +2,7 @@ import { refs } from './refs';
 import { getSome } from './genres.js';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { getTemplateCard } from './template-card.js';
-import { api } from './API.js';
+import { api } from './API';
 import { playSpinner, stopSpinner } from './spinner.js';
 import { notActive } from './pagination.js';
 

@@ -1,6 +1,6 @@
 //Script with all static code
 import { refs } from './refs';
-import { api } from './api';
+import { api } from './API';
 import { handlePageBtnClick } from './pop-films-loading';
 import { heightMax } from './withScroll';
 import {
