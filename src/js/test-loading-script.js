@@ -1,3 +1,4 @@
+//Script with all static code
 import { refs } from './refs';
 import { api } from './api';
 import { handlePageBtnClick } from './pop-films-loading';
@@ -29,7 +30,7 @@ const MYLIBRUARY_PAGE_ID = 'mylibruary';
 
 //the page had finished loading its HTML
 let pageId = 'not avaiable';
-console.log('test script started '); 
+console.log('test script started ');
 
 //fill refs
 refs.body = document.querySelector('body');
