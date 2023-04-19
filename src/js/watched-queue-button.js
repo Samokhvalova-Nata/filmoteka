@@ -34,7 +34,11 @@ function renderGalleryFromLocaleStorage(key) {
   refs.galleryListEl.innerHTML = ' ';
   const localeStorage = localStorage.getItem(key);
   const localeStorageMovies = JSON.parse(localeStorage);
-  if (localeStorageMovies.length) {
+  if (localeStorageMovies === null) {
+    refs.galleryListEl.innerHTML =
+      '<div class = "my-lib-empty-wrap"><iframe src="https://giphy.com/embed/iNx9pCiBimBAdOb0oa" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><span class ="my-lib-empty">Your libruary is empty...</span></p></div>';
+    //console.log('oooops, nothing');
+  } else {
     localeStorageMovies.forEach(async el => {
       try {
         const data = await api.fetchMovieInfo(el);
@@ -43,10 +47,6 @@ function renderGalleryFromLocaleStorage(key) {
         console.warn(error);
       }
     });
-  } else {
-    refs.galleryListEl.innerHTML =
-      '<div class = "my-lib-empty-wrap"><iframe src="https://giphy.com/embed/iNx9pCiBimBAdOb0oa" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><span class ="my-lib-empty">Your libruary is empty...</span></p></div>';
-    //console.log('oooops, nothing');
   }
 }
 

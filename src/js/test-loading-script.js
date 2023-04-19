@@ -68,7 +68,7 @@ function initPage() {
   //TODO: show Loading();
 
   document.addEventListener('DOMContentLoaded', onDOMContentLoaded);
-  console.log('add EventListener(DOMContentLoaded, onDOMContentLoaded');
+  // console.log('add EventListener(DOMContentLoaded, onDOMContentLoaded');
 
   //from new withscroll
   const scrollUo = document.querySelector('.toTopBtn');
@@ -85,20 +85,26 @@ function initPage() {
   //  console.log('toTopBtn ', scrollUo);
   //modal main
   refs.gallery.addEventListener('click', holderOpenModal);
-  console.log('add EventListener click, holderOpenModal');
+  // console.log('add EventListener click, holderOpenModal');
 
   refs.btnCloseModal.addEventListener('click', holderCloseModal);
-  console.log('add EventListener click, holderCloseModal');
+  // console.log('add EventListener click, holderCloseModal');
   refs.modal.addEventListener('click', holderCloseByPressBackdrop);
-  console.log('add EventListener click, holderCloseByPressBackdrop');
+  // console.log('add EventListener click, holderCloseByPressBackdrop');
   document.addEventListener('keydown', handlerEscPrecc);
   //trailer-modal
   refs.trailerModalOpen.addEventListener('click', handleOpenTrailerClick);
-  console.log('add EventListener click, handleOpenTrailerClick');
+  // console.log('add EventListener click, handleOpenTrailerClick');
   refs.trailerModalClose.addEventListener('click', handleCloseTrailerBtnClick);
-  console.log('add EventListener click, handleCloseTrailerBtnClick');
+  // console.log('add EventListener click, handleCloseTrailerBtnClick');
   refs.gallery.addEventListener('click', addMovieId); //trailer-modal
-  console.log('add EventListener click, addMovieId');
+  // console.log('add EventListener click, addMovieId');
+
+
+  refs.addWatched.addEventListener('click', toggleFilmToWatchedStorage);
+  refs.addQueue.addEventListener('click', toggleFilmToQueueStorage);
+  refs.gallery.addEventListener('click', checkStorageKeys);
+
   //from spinner
   refs.gallery.innerHTML = `<div class="spinner-backdrop"></div>`;
 }
@@ -120,13 +126,14 @@ function onDOMContentLoaded() {
 }
 
 function initMainPage() {
-  console.log('initMainPage refs', refs);
+  // console.log('initMainPage refs', refs);
   heightMax();
   //initial fetch for 1st page
   handlePageBtnClick(); //TODO:if (galleryListEl) {}
   //query word search
   refs.filmSearchForm.addEventListener('submit', handleFormSubmit);
-  console.log('add EventListener submit, handleFormSubmit');
+  // console.log('add EventListener submit, handleFormSubmit');
+  
 }
 
 function initMyLibruaryPage() {
@@ -135,11 +142,11 @@ function initMyLibruaryPage() {
   //initial fetch for 1st page
   // handlePageBtnClick(); //TODO:if (galleryListEl) {}
   //listeners
-  refs.addWatched.addEventListener('click', toggleFilmToWatchedStorage);
-  //console.log('add EventListener click, toggleFilmToWatchedStorage');
-  refs.addQueue.addEventListener('click', toggleFilmToQueueStorage);
-  //console.log('add EventListener click, toggleFilmToQueueStorage');
-  refs.gallery.addEventListener('click', checkStorageKeys);
+  // refs.addWatched.addEventListener('click', toggleFilmToWatchedStorage);
+  // //console.log('add EventListener click, toggleFilmToWatchedStorage');
+  // refs.addQueue.addEventListener('click', toggleFilmToQueueStorage);
+  // //console.log('add EventListener click, toggleFilmToQueueStorage');
+  // refs.gallery.addEventListener('click', checkStorageKeys);
  // console.log('add EventListener click,  checkStorageKeys');
 
   //watch-queque-button
