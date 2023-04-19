@@ -1,12 +1,12 @@
 import { refs } from './refs';
 import { Spinner } from 'spin.js';
 
-window.onload = function () {
-  const preloaderWebsite = document.querySelector('.spinner');
-  setTimeout(function () {
-    preloaderWebsite.classList.add('is-closed');
-  }, 2000);
-};
+// window.onload = function () {
+//   const preloaderWebsite = document.querySelector('.spinner');
+//   setTimeout(function () {
+//     preloaderWebsite.classList.add('is-closed');
+//   }, 2000);
+// };
 
 
 /* OD:
