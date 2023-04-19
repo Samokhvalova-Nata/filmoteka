@@ -6,8 +6,6 @@ import { makePagin } from './pagination.js';
 import { playSpinner, stopSpinner } from './spinner';
 
 export async function handlePageBtnClick() {
-  playSpinner();
-
   try {
     const { data } = await api.fetchPopMovies();
     makeElements(data.results, api.poster_sizes[3]);
@@ -15,9 +13,6 @@ export async function handlePageBtnClick() {
     //TODO: notification with Notiflix.error
     console.log('ERROR! ', error);
   }
-  setTimeout(() => {
-    stopSpinner();
-  }, 222);
 }
 // ==========>make HTML EL...
 function makeElements(value, size) {
