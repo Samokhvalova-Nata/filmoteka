@@ -3,6 +3,7 @@ import { api } from './API.js';
 
 export async function holderOpenModal(event) {
   console.log('holderOpenModal ', event.target.dataset.id, event.target);
+  document.addEventListener("keydown", handlerEscPrecc);
   const filmId = event.target.dataset.id;
   if (filmId) {
     refs.modal.classList.remove('visually-hidden');
@@ -33,7 +34,7 @@ function createModalCards({
 
   return `
             <div class="modal__poster" data-id = ${id}>
-                <img class="modal__poster-img" src="https://image.tmdb.org/t/p/w342${poster_path}">
+                <img class="modal__poster-img" src="https://image.tmdb.org/t/p/w342${poster_path}" alt="film poster">
             </div>
             <div class="modal__info-conteiner">
                 <h2 class="modal__movie-title">
@@ -94,6 +95,7 @@ function createModalCards({
 export function holderCloseModal(event) {
   refs.modal.classList.add('visually-hidden');
   refs.body.classList.remove('no-scroll');
+  document.removeEventListener('keydown', handlerEscPrecc);
 }
 
 export function holderCloseByPressBackdrop(event) {
@@ -101,6 +103,7 @@ export function holderCloseByPressBackdrop(event) {
     refs.modal.classList.add('visually-hidden');
     refs.body.classList.remove('no-scroll');
   }
+  document.removeEventListener('keydown', handlerEscPrecc);
 }
 
 export function handlerEscPrecc(event) {
