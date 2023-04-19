@@ -39,7 +39,9 @@ export async function dataQuery() {
   } finally {
     refs.filmSearchForm.reset();
   }
-  stopSpinner();
+  setTimeout(() => {
+    stopSpinner();
+  }, 222);
 }
 
 //TODO: export

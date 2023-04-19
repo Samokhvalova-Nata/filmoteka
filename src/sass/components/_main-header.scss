@@ -264,7 +264,23 @@
   background-color: var(--primary-text-color);
   color: var(--primary-white-color);
 }
+// ==================ANOMATION SCALE
+.animScale {
+  animation: nav__link 3s infinite;
+  @keyframes nav__link {
+    0% {
+      transform: scale(1);
+    }
 
+    50% {
+      transform: scale(1.1);
+    }
+
+    100% {
+      transform: scale(1);
+    }
+  }
+}
 .header-logo {
   gap: 8px;
   display: flex;

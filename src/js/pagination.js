@@ -3,6 +3,8 @@ import Pagination from 'tui-pagination';
 import { api } from './API';
 import { handlePageBtnClick } from './pop-films-loading';
 import { dataQuery } from './query-word-searching';
+import { playSpinner, stopSpinner } from './spinner.js';
+
 //TODO: import { Report } from 'notiflix/build/notiflix-report-aio';
 
 //OD: const container = document.getElementById('tui-pagination-container');
@@ -29,7 +31,9 @@ function notActive(itemsTotal) {
 function go(value) {
   value.on('beforeMove', event => {
     api.page = event.page;
-    dataQuery(api.page);
+    setTimeout(() => {
+      dataQuery(api.page);
+    }, 111);
     cleanAllGallery();
   });
 }
@@ -51,7 +55,9 @@ function makePagin() {
       api.page = e.page;
 
       cleanAllGallery();
-      handlePageBtnClick();
+      setTimeout(() => {
+        handlePageBtnClick();
+      }, 111);
     });
   }
 }
