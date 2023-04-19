@@ -95,6 +95,7 @@ function createModalCards({
 export function holderCloseModal(event) {
   refs.modal.classList.add('visually-hidden');
   refs.body.classList.remove('no-scroll');
+  document.removeEventListener('keydown', handlerEscPrecc);
 }
 
 export function holderCloseByPressBackdrop(event) {
@@ -102,6 +103,7 @@ export function holderCloseByPressBackdrop(event) {
     refs.modal.classList.add('visually-hidden');
     refs.body.classList.remove('no-scroll');
   }
+  document.removeEventListener('keydown', handlerEscPrecc);
 }
 
 export function handlerEscPrecc(event) {
