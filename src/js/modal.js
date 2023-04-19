@@ -2,7 +2,7 @@ import { refs } from './refs';
 import { api } from './API.js';
 
 export async function holderOpenModal(event) {
-  console.log('holderOpenModal ', event.target.dataset.id, event.target);
+  // console.log('holderOpenModal ', event.target.dataset.id, event.target);
   document.addEventListener("keydown", handlerEscPrecc);
   const filmId = event.target.dataset.id;
   if (filmId) {

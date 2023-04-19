@@ -30,7 +30,7 @@ const MYLIBRUARY_PAGE_ID = 'mylibruary';
 
 //the page had finished loading its HTML
 let pageId = 'not avaiable';
-console.log('test script started ');
+// console.log('test script started ');
 
 //fill refs
 refs.body = document.querySelector('body');
@@ -64,7 +64,7 @@ initPage();
 //===============================================================
 function initPage() {
   pageId = document.body.id;
-  console.log('init running on ', pageId);
+  // console.log('init running on ', pageId);
   //TODO: show Loading();
 
   document.addEventListener('DOMContentLoaded', onDOMContentLoaded);
@@ -80,7 +80,7 @@ function initPage() {
       });
     });
   } else {
-    console.log('NOT Loaded!!!EventListener click toTopBtn');
+    // console.log('NOT Loaded!!!EventListener click toTopBtn');
   }
   //  console.log('toTopBtn ', scrollUo);
   //modal main
@@ -111,7 +111,7 @@ function initPage() {
 
 function onDOMContentLoaded() {
   pageId = document.body.id; // '#mainpage'
-  console.log('onDOMContentLoaded ', pageId);
+  // console.log('onDOMContentLoaded ', pageId);
 
   switch (pageId) {
     case MAIN_PAGE_ID:
@@ -121,7 +121,7 @@ function onDOMContentLoaded() {
       initMyLibruaryPage();
       break;
     default:
-      console.log('Unexpected case');
+      // console.log('Unexpected case');
   }
 }
 
@@ -137,7 +137,7 @@ function initMainPage() {
 }
 
 function initMyLibruaryPage() {
-  console.log('initMyLibruaryPage ', refs);
+  // console.log('initMyLibruaryPage ', refs);
   heightMax();
   //initial fetch for 1st page
   // handlePageBtnClick(); //TODO:if (galleryListEl) {}
@@ -155,5 +155,5 @@ function initMyLibruaryPage() {
   refs.watchedGalleryEl.addEventListener('click', renderWatchedGallery);
   //console.log('add EventListener click refs.watchedGalleryEl,renderWatchedGallery');
   refs.queueGalleryEl.addEventListener('click', renderQueueGallery);
-  console.log('add EventListener click, refs.queueGalleryEl, renderQueueGallery');
+  // console.log('add EventListener click, refs.queueGalleryEl, renderQueueGallery');
 }
