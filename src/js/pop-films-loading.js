@@ -15,7 +15,9 @@ export async function handlePageBtnClick() {
     //TODO: notification with Notiflix.error
     console.log('ERROR! ', error);
   }
-  stopSpinner();
+  setTimeout(() => {
+    stopSpinner();
+  }, 222);
 }
 // ==========>make HTML EL...
 function makeElements(value, size) {
