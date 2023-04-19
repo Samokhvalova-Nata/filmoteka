@@ -1,18 +1,35 @@
+import { refs } from './refs';
 import { api } from './API.js';
-import { handlePageBtnClick } from './pop-films-loading';
 
-const refs = {
-    btnCloseModal: document.querySelector('[data-modal-close]'),
-    modal: document.querySelector('[data-modal]'),
-    galary: document.querySelector('.film__gallery'),
-    filmCard: document.querySelector('.modal__info'),
-    galaryBySearch: document.querySelector('.film__gallery'),
-    body: document.querySelector('body')
+export async function holderOpenModal(event) {
+  console.log('holderOpenModal ', event.target.dataset.id, event.target);
+  const filmId = event.target.dataset.id;
+  if (filmId) {
+    refs.modal.classList.remove('visually-hidden');
+    refs.body.classList.add('no-scroll');
+    try {
+      const filmInfo = await api.fetchMovieInfo(filmId);
+      refs.filmCard.innerHTML = createModalCards(filmInfo);
+    } catch (error) {
+      console.log('ERROR! ', error);
+    }
+  }
 }
 
-refs.btnCloseModal.addEventListener("click", holderCloseModal);
-refs.modal.addEventListener("click", holderCloseByPressBackdrop);
-refs.galary.addEventListener('click', holderOpenModal);
+function createModalCards({
+  poster_path,
+  original_title,
+  vote_average,
+  vote_count,
+  popularity,
+  genres,
+  overview,
+  id,
+}) {
+  const genresName = [];
+  for (const gener of genres) {
+    genresName.push(gener.name);
+  }
 
 const modalTheme = document.querySelector('.modal__movie');
 
@@ -76,7 +93,7 @@ function createModalCards({poster_path, original_title, vote_average, vote_count
                             <li class="modal__info-value-item">
                                 <span class="modal__span-vote">
                                     ${Math.round(vote_average)}
-                                </span> 
+                                </span>
                                 /
                                 <span class="modal__span-votes">
                                     ${vote_count}
@@ -96,7 +113,7 @@ function createModalCards({poster_path, original_title, vote_average, vote_count
                 </div>
                 <div class="modal__about">
                     <h3 class="modal__about-title">
-                        About 
+                        About
                     </h3>
                     <p class="modal__movie-description">
                         ${overview}
@@ -106,28 +123,23 @@ function createModalCards({poster_path, original_title, vote_average, vote_count
     `;
 }
 
-    
-
-function holderCloseModal(event) {
-    refs.modal.classList.add("visually-hidden")
-    refs.body.classList.remove('no-scroll')
+export function holderCloseModal(event) {
+  refs.modal.classList.add('visually-hidden');
+  refs.body.classList.remove('no-scroll');
 }
 
-function holderCloseByPressBackdrop(event) {
-    if (event.target === refs.modal) {
-        refs.modal.classList.add("visually-hidden")
-        refs.body.classList.remove('no-scroll')
-    }
+export function holderCloseByPressBackdrop(event) {
+  if (event.target === refs.modal) {
+    refs.modal.classList.add('visually-hidden');
+    refs.body.classList.remove('no-scroll');
+  }
 }
 
-    document.addEventListener("keydown", handlerEscPrecc);
-
-function handlerEscPrecc(event) {
-    // console.log(event.key)
-    if (event.code === "Escape") {
-        refs.modal.classList.add("visually-hidden")
-        refs.body.classList.remove('no-scroll')
-    }
-    document.removeEventListener("keydown", handlerEscPrecc);
+export function handlerEscPrecc(event) {
+  // console.log(event.key)
+  if (event.code === 'Escape') {
+    refs.modal.classList.add('visually-hidden');
+    refs.body.classList.remove('no-scroll');
+  }
+  document.removeEventListener('keydown', handlerEscPrecc);
 }
-
