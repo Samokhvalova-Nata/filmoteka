@@ -21,3 +21,44 @@
     gap: 16px;
   }
 }
+.my-lib-empty-wrap {
+  margin: 0 auto;
+  padding: 0 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+.giphy-embed {
+  border-radius: 10px;
+  box-shadow: 10px 10px 8px 2px rgba(0, 0, 0, 0.3);
+  width: 200px;
+  height: 113px;
+
+  @media screen and(min-width:768px) {
+    width: 400px;
+    height: 227px;
+  }
+
+  @media screen and(min-width:1280px) {
+    width: 500px;
+    height: 281px;
+  }
+}
+
+.my-lib-empty {
+  font-size: 20px;
+  line-height: 1.15;
+  color: var(--primary-text-color);
+  margin-top: 40px;
+  color: var(--accent-color);
+
+  @media screen and(min-width:768px) {
+    font-size: 24px;
+  }
+
+  @media screen and(min-width:1280px) {
+    font-size: 36px;
+  }
+}
