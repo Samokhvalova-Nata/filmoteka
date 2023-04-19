@@ -3,7 +3,7 @@ import './js/pagination.js';
 import './js/query-word-searching.js';
 import './js/pop-films-loading.js';
 import "./js/withScroll.js";
-/*
+
 
 import "./js/modal.js";
 
