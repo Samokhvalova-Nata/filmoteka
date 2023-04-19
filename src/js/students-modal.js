@@ -1,3 +1,5 @@
+import Swiper from 'swiper/swiper-bundle.min.css';
+import Swiper from 'swiper/swiper-bundle.min.js';
 const onOpenFooterText = document.querySelector('[data-modal-students-open]');
 const onCloseModalBTN = document.querySelector('[data-members-modal-close-btn]');
 const backdroplRef = document.querySelector('.members__backdrop')
