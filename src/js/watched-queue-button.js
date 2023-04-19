@@ -1,29 +1,40 @@
+import { refs } from './refs';
 import { getSome } from './genres';
-import { api } from './API';
+import { api } from './api';
 
+// let id;
+// id = evt.target.dataset.id;
+
+/* OD:
 const galleryListEl = document.querySelector('[data-movies-list]');
 const watchedGalleryEl = document.querySelector('[data-watched]');
-const queueGalleryEl = document.querySelector('[data-queue]');
+const queueGalleryEl = document.querySelector('[data-queue]'); */
 
-window.addEventListener('load', renderWatchedGallery);
-watchedGalleryEl.addEventListener('click', renderWatchedGallery);
-queueGalleryEl.addEventListener('click', renderQueueGallery);
+/* OD:
+window.addEventListen er('load', renderWatchedGallery);
+refs.watchedGalleryEl.addEventList ener('click', renderWatchedGallery);
+refs.queueGalleryEl.addEventListen er('click', renderQueueGallery); */
 
-function renderWatchedGallery() {
-  watchedGalleryEl.classList.add('active');
+export function renderWatchedGallery() {
+  console.log('renderWatchedGallery:', refs.galleryListEl);
+  refs.watchedGalleryEl.classList.add('active');
   renderGalleryFromLocaleStorage('watched');
+  console.log(
+    'renderWatchedGallery:',
+    refs.galleryListEl.innerHTML
+  );
 }
 
-function renderQueueGallery() {
-  watchedGalleryEl.classList.remove('active');
+export function renderQueueGallery() {
+  refs.watchedGalleryEl.classList.remove('active');
   renderGalleryFromLocaleStorage('queue');
 }
 
 function renderGalleryFromLocaleStorage(key) {
-  galleryListEl.innerHTML = ' ';
+  refs.galleryListEl.innerHTML = ' ';
   const localeStorage = localStorage.getItem(key);
   const localeStorageMovies = JSON.parse(localeStorage);
-  if (localeStorageMovies !== null) {
+  if (localeStorageMovies.length) {
     localeStorageMovies.forEach(async el => {
       try {
         const data = await api.fetchMovieInfo(el);
@@ -33,20 +44,22 @@ function renderGalleryFromLocaleStorage(key) {
       }
     });
   } else {
-    console.log('oooops, nothing');
+    refs.galleryListEl.innerHTML =
+      '<div class = "my-lib-empty-wrap"><iframe src="https://giphy.com/embed/iNx9pCiBimBAdOb0oa" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><span class ="my-lib-empty">Your libruary is empty...</span></p></div>';
+    //console.log('oooops, nothing');
   }
 }
 
 function renderCards(data) {
   const genresId = data.genres.map(el => el.id);
   const movieGenres = getSome(genresId);
-  galleryListEl.insertAdjacentHTML(
+  refs.galleryListEl.insertAdjacentHTML(
     'beforeend',
     `<li class="film__item" data-id=${data.id}><div class="film__wrap">
     <img
       class="film__poster"
       src="https://image.tmdb.org/t/p/w500${data.poster_path}"
-      alt=""
+      alt="" data-id=${data.id}
     /></div>
     <div class="film__info" data-id=${data.id}>
       <p class="film__name">${data.title}</p>
@@ -54,9 +67,9 @@ function renderCards(data) {
       0,
       4
     )}</p>
-    
+
     </div>
-  
+
 </li>`
   );
 }
