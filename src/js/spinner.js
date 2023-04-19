@@ -1,12 +1,12 @@
 import { refs } from './refs';
 import { Spinner } from 'spin.js';
 
-// window.onload = function () {
-//   const preloaderWebsite = document.querySelector('.spinner');
-//   setTimeout(function () {
-//     preloaderWebsite.classList.add('is-closed');
-//   }, 2000);
-// };
+window.onload = function () {
+  const preloaderWebsite = document.querySelector('.spinner');
+  setTimeout(function () {
+    preloaderWebsite.classList.add('is-closed');
+  }, 2000);
+};
 
 
 /* OD:
@@ -49,7 +49,7 @@ function playSpinner() {
     'play .spinner-backdrop', refs.gallery,
     refs.gallery.innerHTML
   );
-  console.log('spinner-backdrop=', backdrop);
+  // console.log('spinner-backdrop=', backdrop);
    if (backdrop) backdrop.classList.remove('is-closed');
   spinner.spin(refs.targetSpinner);
 }
@@ -57,7 +57,7 @@ function playSpinner() {
 function stopSpinner() {
   //TODO:
   const backdrop = document.querySelector('.spinner-backdrop');
-  console.log('stop spinner-backdrop=', backdrop);
+  // console.log('stop spinner-backdrop=', backdrop);
   if (backdrop) backdrop.classList.add('is-closed');
   spinner.stop();
 }

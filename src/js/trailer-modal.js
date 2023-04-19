@@ -22,14 +22,14 @@ refs.galleryCard.addEventListen er('click', addMovieId); */
 
 export function addMovieId(evt) {
   movieId = evt.target.dataset.id;
-  console.log('addMovieId, movieId=', movieId);
+  // console.log('addMovieId, movieId=', movieId);
   refs.trailerModalOpen.classList.remove('visually-hidden');
   refs.iframe.innerHTML = ' ';
   renderTrailerModal(movieId);
 }
 
 export function handleOpenTrailerClick() {
-  console.log('handleOpenTrailerClick, movieId', movieId);
+  // console.log('handleOpenTrailerClick, movieId', movieId);
   renderTrailerModal(movieId);
   refs.trailerModal.classList.toggle('visually-hidden');
   refs.movieModal.classList.toggle('visually-hidden');
@@ -38,7 +38,7 @@ export function handleOpenTrailerClick() {
 }
 
 function handleEscapeClick(event) {
-  console.log('handleEscapeClick');
+  // console.log('handleEscapeClick');
   if (event.code === 'Escape') {
     toggleModal();
     document.removeEventListener('keydown', handleEscapeClick);
@@ -46,10 +46,10 @@ function handleEscapeClick(event) {
 }
 
 function handleBackdropClick(event) {
-  console.log(
-    'handleBackdropClick, event.currentTarget === event.target',
-    event.currentTarget === event.target
-  );
+  // console.log(
+  //   'handleBackdropClick, event.currentTarget === event.target',
+  //   event.currentTarget === event.target
+  // );
   if (event.currentTarget === event.target) {
     toggleModal();
     document.removeEventListener('keydown', handleEscapeClick);
@@ -57,13 +57,13 @@ function handleBackdropClick(event) {
 }
 
 export function handleCloseTrailerBtnClick() {
-  console.log('handleCloseTrailerBtnClick');
+  // console.log('handleCloseTrailerBtnClick');
   toggleModal();
   document.removeEventListener('keydown', handleEscapeClick);
 }
 
 function toggleModal() {
-  console.log('toggleModal');
+  // console.log('toggleModal');
   refs.iframe.innerHTML = ' ';
   refs.movieModal.classList.toggle('visually-hidden');
   refs.trailerModal.classList.toggle('visually-hidden');

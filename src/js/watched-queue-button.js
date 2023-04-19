@@ -16,13 +16,13 @@ refs.watchedGalleryEl.addEventList ener('click', renderWatchedGallery);
 refs.queueGalleryEl.addEventListen er('click', renderQueueGallery); */
 
 export function renderWatchedGallery() {
-  console.log('renderWatchedGallery:', refs.galleryListEl);
+  // console.log('renderWatchedGallery:', refs.galleryListEl);
   refs.watchedGalleryEl.classList.add('active');
   renderGalleryFromLocaleStorage('watched');
-  console.log(
-    'renderWatchedGallery:',
-    refs.galleryListEl.innerHTML
-  );
+  // console.log(
+  //   'renderWatchedGallery:',
+  //   refs.galleryListEl.innerHTML
+  // );
 }
 
 export function renderQueueGallery() {

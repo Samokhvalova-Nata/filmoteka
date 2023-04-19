@@ -40,7 +40,7 @@ function checkLocaleStorage(data, btn, el) {
     queueStorage = [];
   }
   let currentLocaleStorage = [...queueStorage];
-  console.log('checkLocaleStorage', currentLocaleStorage); //TODO:
+  // console.log('checkLocaleStorage', currentLocaleStorage); //TODO:
   if (!currentLocaleStorage.includes(id)) {
     currentLocaleStorage = [...currentLocaleStorage, id];
     el.textContent = `Remove from ${btn}`;
@@ -49,9 +49,9 @@ function checkLocaleStorage(data, btn, el) {
 }
 
 export function checkStorageKeys(evt) {
-  console.log('checkStorageKeys evt', evt.target); //TODO:
+  // console.log('checkStorageKeys evt', evt.target); //TODO:
   id = evt.target.dataset.id;
-  console.log('checkStorageKeys id', id); //TODO:
+  // console.log('checkStorageKeys id', id); //TODO:
 
   checkWatchedKeys();
   checkQueueKeys();
