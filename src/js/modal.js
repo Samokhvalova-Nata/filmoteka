@@ -30,7 +30,7 @@ function createModalCards({
   for (const gener of genres) {
     genresName.push(gener.name);
   }
-
+}
 const modalTheme = document.querySelector('.modal__movie');
 
 async function holderOpenModal(event) {
