@@ -2,6 +2,7 @@ import { refs } from './refs';
 import { getSome } from './genres';
 import { api } from './API';
 import { getTemplateCard } from './template-card.js';
+import { makePagin } from './pagination.js';
 
 export async function handlePageBtnClick() {
   try {
@@ -16,6 +17,7 @@ export async function handlePageBtnClick() {
 // ==========>make HTML EL...
 function makeElements(value, size) {
   cleanAllGallery();
+  makePagin();
   refs.gallery.insertAdjacentHTML(
     'afterbegin',
     createGalleryCards(value, size)
@@ -28,7 +30,6 @@ function cleanAllGallery() {
 }
 
 export function createGalleryCards(results, poster_size) {
-
   return results
     .map(({ poster_path, title, genre_ids, release_date, id }) => {
       return getTemplateCard({

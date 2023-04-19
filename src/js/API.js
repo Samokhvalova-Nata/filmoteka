@@ -13,7 +13,6 @@ class FetchTheMovieDbAPI {
   constructor() {
     this.fetchConf(); //TODO: can be commented (then backEndConfig will be not valid)
   }
-
   search = null;
   page = 1;
   async fetchMovie(searchQuery) {
