@@ -1,8 +1,5 @@
 import { getSome } from './genres';
-import { api } from './api';
-
-// let id;
-// id = evt.target.dataset.id;
+import { api } from './API';
 
 const galleryListEl = document.querySelector('[data-movies-list]');
 const watchedGalleryEl = document.querySelector('[data-watched]');
