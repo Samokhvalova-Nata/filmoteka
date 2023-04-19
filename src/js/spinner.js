@@ -8,8 +8,8 @@ import { Spinner } from 'spin.js';
 // };
 
 
-const gallery = document.querySelector('.film__gallery');
-gallery.innerHTML = `<div class="spinner-backdrop"></div>`;
+/* OD: const gallery = document.querySelector('.film__gallery');
+gallery.innerHTML = `<div class="spinner-backdrop"></div>`; */
 
 const options = {
   lines: 12, // The number of lines to draw
