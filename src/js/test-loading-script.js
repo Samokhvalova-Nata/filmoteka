@@ -133,7 +133,7 @@ function initMyLibruaryPage() {
   console.log('initMyLibruaryPage ', refs);
   heightMax();
   //initial fetch for 1st page
-  handlePageBtnClick(); //TODO:if (galleryListEl) {}
+  // handlePageBtnClick(); //TODO:if (galleryListEl) {}
   //listeners
   refs.addWatched.addEventListener('click', toggleFilmToWatchedStorage);
   //console.log('add EventListener click, toggleFilmToWatchedStorage');

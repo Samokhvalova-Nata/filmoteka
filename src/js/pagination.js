@@ -36,7 +36,7 @@ function go(value) {
 
 // ==========================
 //OD: THIS IS THE COURSE OF ERROR WHEN LOADING!
-//TODO: if (api.search == null) makePagin();
+// TODO: if (api.search === null) makePagin();
 function makePagin() {
   paginationPopularTrand = new Pagination(refs.container, {
     totalItems: 20000,
