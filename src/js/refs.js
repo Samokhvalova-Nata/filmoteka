@@ -26,4 +26,7 @@ export const refs = {
   galleryListEl: document.querySelector('[data-movies-list]'),
   watchedGalleryEl: document.querySelector('[data-watched]'),
   queueGalleryEl: document.querySelector('[data-queue]'),
+
+  //from spinner
+  targetSpinner: document.getElementById('spinContainer')
 };

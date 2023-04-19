@@ -58,7 +58,8 @@ refs.watchedGalleryEl = document.querySelector('[data-watched]');
 refs.queueGalleryEl = document.querySelector('[data-queue]');
 refs.btnCloseModal = document.querySelector('[data-modal-close]');
 refs.modal = document.querySelector('[data-modal]');
-
+  //from spinner
+refs.targetSpinner = document.getElementById('spinContainer');
 initPage();
 //===============================================================
 function initPage() {
@@ -98,6 +99,8 @@ function initPage() {
   console.log('add EventListener click, handleCloseTrailerBtnClick');
   refs.gallery.addEventListener('click', addMovieId); //trailer-modal
   console.log('add EventListener click, addMovieId');
+  //from spinner
+  refs.gallery.innerHTML = `<div class="spinner-backdrop"></div>`;
 }
 
 function onDOMContentLoaded() {

@@ -1,3 +1,4 @@
+import { refs } from './refs';
 import { Spinner } from 'spin.js';
 
 // window.onload = function () {
@@ -8,8 +9,14 @@ import { Spinner } from 'spin.js';
 // };
 
 
-/* OD: const gallery = document.querySelector('.film__gallery');
-gallery.innerHTML = `<div class="spinner-backdrop"></div>`; */
+/* OD:
+const gallery = document.querySelector('.film__gallery');
+gallery.innerHTML = `<div class="spinner-backdrop"></div>`;*/
+//TODO: I suspect it is a problem - Dynamic HTML used for playing
+//- and it is creating in the static part of code. It is for sure
+//will be overwritten and spinner will not be working.
+//TODO:Change is needed => move to static code
+
 
 const options = {
   lines: 12, // The number of lines to draw
@@ -31,15 +38,27 @@ const options = {
   className: 'spinner', // The CSS class to assign to the spinner
   position: 'absolute', // Element positioning
 };
-let target = document.getElementById('spinContainer');
-const backdrop = document.querySelector('.spinner-backdrop');
+
+//OD: let target = document.getElementById('spinContainer');
+/* OD: moved inside
+const backdrop = document.querySelector('.spinner-backdrop'); */
 const spinner = new Spinner(options);
+
 function playSpinner() {
-  backdrop.classList.remove('is-closed');
-  spinner.spin(target);
+  const backdrop = document.querySelector( //TODO:
+    'play .spinner-backdrop', refs.gallery,
+    refs.gallery.innerHTML
+  );
+  console.log('spinner-backdrop=', backdrop);
+   if (backdrop) backdrop.classList.remove('is-closed');
+  spinner.spin(refs.targetSpinner);
 }
+
 function stopSpinner() {
-  backdrop.classList.add('is-closed');
+  //TODO:
+  const backdrop = document.querySelector('.spinner-backdrop');
+  console.log('stop spinner-backdrop=', backdrop);
+  if (backdrop) backdrop.classList.add('is-closed');
   spinner.stop();
 }
 
