@@ -5,12 +5,22 @@ export async function holderOpenModal(event) {
   // console.log('holderOpenModal ', event.target.dataset.id, event.target);
   document.addEventListener("keydown", handlerEscPrecc);
   const filmId = event.target.dataset.id;
+  const modalTheme = document.querySelector('.modal__movie');
   if (filmId) {
     refs.modal.classList.remove('visually-hidden');
     refs.body.classList.add('no-scroll');
     try {
       const filmInfo = await api.fetchMovieInfo(filmId);
       refs.filmCard.innerHTML = createModalCards(filmInfo);
+      const modalDark = document.body.classList.contains('darkTheme');
+      if (modalDark) {
+        modalTheme.classList.add('darkModal');
+        modalTheme.classList.remove('ligthModal');
+      } else {
+        modalTheme.classList.remove('darkModal');
+        modalTheme.classList.add('ligthModal');
+      }
+
     } catch (error) {
       console.log('ERROR! ', error);
     }
@@ -31,40 +41,8 @@ function createModalCards({
   for (const gener of genres) {
     genresName.push(gener.name);
   }
-}
-const modalTheme = document.querySelector('.modal__movie');
 
-async function holderOpenModal(event) {
-    const filmId = event.target.dataset.id;
-    if (filmId) {
-        refs.modal.classList.remove('visually-hidden');
-        refs.body.classList.add('no-scroll')
-        try {
-            const filmInfo = await api.fetchMovieInfo(filmId);
-            refs.filmCard.innerHTML = createModalCards(filmInfo);
-
-            const modalDark = document.body.classList.contains('darkTheme');
-            if (modalDark) {
-              modalTheme.classList.add('darkModal');
-              modalTheme.classList.remove('ligthModal');
-            } else {
-              modalTheme.classList.remove('darkModal');
-              modalTheme.classList.add('ligthModal');
-            }
-        } catch (error) {
-    console.log('ERROR! ', error);
-        }
-    }
-}
-
-function createModalCards({poster_path, original_title, vote_average, vote_count, popularity, genres,
-    overview, id }) {
-    const genresName = [];
-    for (const gener of genres) {
-        genresName.push(gener.name);
-    }
-
-    return `
+  return `
             <div class="modal__poster" data-id = ${id}>
                 <img class="modal__poster-img" src="https://image.tmdb.org/t/p/w342${poster_path}" alt="film poster">
             </div>
