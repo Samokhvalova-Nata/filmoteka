@@ -38,10 +38,10 @@ export async function dataQuery() {
     console.log(error);
   } finally {
     refs.filmSearchForm.reset();
+    setTimeout(() => {
+      stopSpinner();
+    }, 222);
   }
-  setTimeout(() => {
-    stopSpinner();
-  }, 222);
 }
 
 //TODO: export
