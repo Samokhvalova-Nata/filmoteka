@@ -17,8 +17,12 @@ refs.queueGalleryEl.addEventListen er('click', renderQueueGallery); */
 
 export function renderWatchedGallery() {
   // console.log('renderWatchedGallery:', refs.galleryListEl);
+  refs.addWatched.classList.remove('visually-hidden');
   refs.watchedGalleryEl.classList.add('active');
+  refs.queueGalleryEl.classList.remove('active');
   renderGalleryFromLocaleStorage('watched');
+  refs.addQueue.classList.add('visually-hidden');
+
   // console.log(
   //   'renderWatchedGallery:',
   //   refs.galleryListEl.innerHTML
@@ -26,8 +30,11 @@ export function renderWatchedGallery() {
 }
 
 export function renderQueueGallery() {
+  refs.addQueue.classList.remove('visually-hidden');
   refs.watchedGalleryEl.classList.remove('active');
+  refs.queueGalleryEl.classList.add('active');
   renderGalleryFromLocaleStorage('queue');
+  refs.addWatched.classList.add('visually-hidden');
 }
 
 function renderGalleryFromLocaleStorage(key) {
