@@ -1,6 +1,6 @@
 //Script with all static code
 import { refs } from './refs';
-import { api } from './api';
+import { api } from './API';
 import { handlePageBtnClick } from './pop-films-loading';
 import { heightMax } from './withScroll';
 import {
@@ -58,7 +58,8 @@ refs.watchedGalleryEl = document.querySelector('[data-watched]');
 refs.queueGalleryEl = document.querySelector('[data-queue]');
 refs.btnCloseModal = document.querySelector('[data-modal-close]');
 refs.modal = document.querySelector('[data-modal]');
-
+  //from spinner
+refs.targetSpinner = document.getElementById('spinContainer');
 initPage();
 //===============================================================
 function initPage() {
@@ -98,6 +99,8 @@ function initPage() {
   console.log('add EventListener click, handleCloseTrailerBtnClick');
   refs.gallery.addEventListener('click', addMovieId); //trailer-modal
   console.log('add EventListener click, addMovieId');
+  //from spinner
+  refs.gallery.innerHTML = `<div class="spinner-backdrop"></div>`;
 }
 
 function onDOMContentLoaded() {
@@ -130,7 +133,7 @@ function initMyLibruaryPage() {
   console.log('initMyLibruaryPage ', refs);
   heightMax();
   //initial fetch for 1st page
-  handlePageBtnClick(); //TODO:if (galleryListEl) {}
+  // handlePageBtnClick(); //TODO:if (galleryListEl) {}
   //listeners
   refs.addWatched.addEventListener('click', toggleFilmToWatchedStorage);
   //console.log('add EventListener click, toggleFilmToWatchedStorage');

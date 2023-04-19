@@ -1,36 +1,36 @@
+import { refs } from './refs';
 import { getSome } from './genres.js';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
-import { pagination } from './pagination.js';
 import { getTemplateCard } from './template-card.js';
-import { api } from './API.js';
+import { api } from './API';
 import { playSpinner, stopSpinner } from './spinner.js';
 import { notActive } from './pagination.js';
 
-const galleryEl = document.querySelector('.film__gallery');
-const filmSearchForm = document.querySelector('.search-bar');
-const container = document.getElementById('tui-pagination-container');
 
-filmSearchForm.addEventListener('submit', handleFormSubmit);
 export function handleFormSubmit(event) {
+  console.log('handleFormSubmit ', event.currentTarget);//TODO:
   event.preventDefault();
+  console.log('handleFormSubmit ', event.currentTarget.search.value.trim());
   const query = event.currentTarget.search.value.trim();
   api.page = 1;
   if (query === '') {
     Notify.failure('Please enter a search query for the movie');
     return;
   }
-  container.classList.remove('visually-hidden');
+  refs.container.classList.remove('visually-hidden');
   api.search = query;
   dataQuery();
 }
+
 export async function dataQuery() {
+  console.log('dataQuery '); //TODO:
   try {
     playSpinner();
     const movies = await api.fetchMovie(api.search);
     if (movies.total_results === 0) {
       Notify.failure('No movies found with the given search query.');
       renderMoviesMarkup(null);
-      container.classList.add('visually-hidden');
+      refs.container.classList.add('visually-hidden');
       return;
     }
     notActive(movies.total_results, movies.total_pages);
@@ -38,13 +38,15 @@ export async function dataQuery() {
   } catch (error) {
     console.log(error);
   } finally {
-    filmSearchForm.reset();
+    refs.filmSearchForm.reset();
   }
   stopSpinner();
 }
-export function renderMoviesMarkup(response) {
+
+//TODO: export
+  function renderMoviesMarkup(response) {
   if (response === null) {
-    galleryEl.innerHTML = '';
+    refs.gallery.innerHTML = '';
     return;
   }
   const markup = response.results
@@ -60,5 +62,5 @@ export function renderMoviesMarkup(response) {
       });
     })
     .join('');
-  galleryEl.innerHTML = markup;
+  refs.gallery.innerHTML = markup;
 }
