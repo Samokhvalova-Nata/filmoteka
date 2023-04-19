@@ -6,9 +6,8 @@ import { api } from './API';
 import { playSpinner, stopSpinner } from './spinner.js';
 import { notActive } from './pagination.js';
 
-
 export function handleFormSubmit(event) {
-  console.log('handleFormSubmit ', event.currentTarget);//TODO:
+  console.log('handleFormSubmit ', event.currentTarget); //TODO:
   event.preventDefault();
   console.log('handleFormSubmit ', event.currentTarget.search.value.trim());
   const query = event.currentTarget.search.value.trim();
@@ -44,7 +43,7 @@ export async function dataQuery() {
 }
 
 //TODO: export
-  function renderMoviesMarkup(response) {
+function renderMoviesMarkup(response) {
   if (response === null) {
     refs.gallery.innerHTML = '';
     return;

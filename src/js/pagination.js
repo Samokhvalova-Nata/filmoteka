@@ -36,13 +36,14 @@ function go(value) {
 
 // ==========================
 //OD: THIS IS THE COURSE OF ERROR WHEN LOADING!
-// TODO: if (api.search === null) makePagin();
+// TODO:
 function makePagin() {
   paginationPopularTrand = new Pagination(refs.container, {
     totalItems: 20000,
     itemsPerPage: 20,
     visiblePages: 5,
     centerAlign: true,
+    page: api.page,
   });
   // ==========================
   if (refs.container) {
