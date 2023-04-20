@@ -114,3 +114,37 @@
    color: var(--primary-white-color);
    transition: var(--transition);
 }
+
+
+
+
+ .container {
+   position: relative;
+ }
+ 
+ .darktheme__button {
+   position: absolute;
+   border: none;
+   font-size: 20px;
+   padding: 0;
+   background-color: transparent;
+   width: 30px;
+   height: 30px;
+   top: 403px;
+   right: 39px;
+   margin: 0;
+   padding: 8px 16px;
+   rotate: 32deg;
+ }   
+   @media screen and (min-width: 768px) {
+     .darktheme__button  {
+       top: 173px;
+       right: 48px;
+   }
+ }
+   @media screen and (min-width: 1280px) {
+     .darktheme__button  {
+       top: 270px;
+       right: 47px;
+     }
+   }

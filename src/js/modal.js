@@ -5,12 +5,22 @@ export async function holderOpenModal(event) {
   // console.log('holderOpenModal ', event.target.dataset.id, event.target);
   document.addEventListener("keydown", handlerEscPrecc);
   const filmId = event.target.dataset.id;
+  const modalTheme = document.querySelector('.modal__movie');
   if (filmId) {
     refs.modal.classList.remove('visually-hidden');
     refs.body.classList.add('no-scroll');
     try {
       const filmInfo = await api.fetchMovieInfo(filmId);
       refs.filmCard.innerHTML = createModalCards(filmInfo);
+      const modalDark = document.body.classList.contains('darkTheme');
+      if (modalDark) {
+        modalTheme.classList.add('darkModal');
+        modalTheme.classList.remove('ligthModal');
+      } else {
+        modalTheme.classList.remove('darkModal');
+        modalTheme.classList.add('ligthModal');
+      }
+
     } catch (error) {
       console.log('ERROR! ', error);
     }
