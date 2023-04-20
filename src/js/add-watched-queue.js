@@ -11,7 +11,9 @@ export function toggleFilmToWatchedStorage() {
     const removeMovie = watchedStorage.filter(el => el !== id);
     localStorage.setItem('watched', JSON.stringify(removeMovie));
     refs.addWatched.textContent = 'Add to watched';
-    renderWatchedGallery();
+    if (document.body.id === 'mylibruary') {
+      renderWatchedGallery();
+    }
     return;
   }
   const fromLocal = localStorage.getItem('watched');
@@ -20,7 +22,9 @@ export function toggleFilmToWatchedStorage() {
     JSON.stringify(checkLocaleStorage(fromLocal, 'watched', refs.addWatched))
   );
 
-  renderWatchedGallery();
+  if (document.body.id === 'mylibruary') {
+    renderWatchedGallery();
+  }
 }
 
 export function toggleFilmToQueueStorage() {
@@ -30,7 +34,10 @@ export function toggleFilmToQueueStorage() {
     const removeMovie = queueStorage.filter(el => el !== id);
     localStorage.setItem('queue', JSON.stringify(removeMovie));
     refs.addQueue.textContent = 'Add to queue';
-    renderQueueGallery();
+
+    if (document.body.id === 'mylibruary') {
+      renderQueueGallery();
+    }
     return;
   }
   const fromLocal = localStorage.getItem('queue');
@@ -38,7 +45,9 @@ export function toggleFilmToQueueStorage() {
     'queue',
     JSON.stringify(checkLocaleStorage(fromLocal, 'queue', refs.addQueue))
   );
-  renderQueueGallery();
+  if (document.body.id === 'mylibruary') {
+    renderQueueGallery();
+  }
 }
 
 function checkLocaleStorage(data, btn, el) {
