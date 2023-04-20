@@ -43,7 +43,7 @@ function renderGalleryFromLocaleStorage(key) {
   const localeStorageMovies = JSON.parse(localeStorage);
   if (localeStorageMovies === null || localeStorageMovies.length === 0) {
     refs.galleryListEl.innerHTML =
-      '<div class = "my-lib-empty-wrap"><iframe src="https://giphy.com/embed/iNx9pCiBimBAdOb0oa" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><span class ="my-lib-empty">Your libruary is empty...</span></p></div>';
+      '<div class = "my-lib-empty-wrap"><iframe src="https://giphy.com/embed/iNx9pCiBimBAdOb0oa" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><span class ="my-lib-empty">Your library is empty...</span></p></div>';
     //console.log('oooops, nothing');
   } else {
     localeStorageMovies.forEach(async el => {
