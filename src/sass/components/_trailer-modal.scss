@@ -1,9 +1,5 @@
 .trailer {
    background: rgba(0, 0, 0, 0.7);
-   // position: fixed;
-   // top: 0;
-   // width: 100%;
-   // height: 100%;
    overflow: auto;
 
    &__modal {
@@ -25,14 +21,6 @@
       @media screen and (min-width: 1280px) {
          width: 1200px;
       }
-
-      // @media (orientation: landscape) {
-      //    top: 50%;
-      //    left: 50%;
-      //    width: 80%;
-      //    height: auto;
-      //    transform: translate(-50%, -50%);
-      // }
    }
 
    &__close-icon {

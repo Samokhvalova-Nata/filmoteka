@@ -265,7 +265,7 @@
   background-color: var(--primary-text-color);
   color: var(--primary-white-color);
 }
-// ==================ANOMATION SCALE
+
 .animScale {
   animation: nav__link 3s infinite;
   @keyframes nav__link {
@@ -326,7 +326,6 @@
     line-height: 1.17;
 
     gap: 16px;
-    // min-width: 375px;
   }
 }
 
@@ -381,8 +380,6 @@ fill: transparent;
       right: 47px;
     }
   }
-
-
 
 .darkTheme {
   transition: background-color 500ms cubic-bezier(0.175, 0.82, 0.165, 1);

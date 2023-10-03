@@ -117,7 +117,6 @@ export function holderCloseByPressBackdrop(event) {
 }
 
 export function handlerEscPrecc(event) {
-  // console.log(event.key)
   if (event.code === 'Escape') {
     refs.modal.classList.add('visually-hidden');
     refs.body.classList.remove('no-scroll');

@@ -1,99 +1,60 @@
-# Parcel template
+# Filmoteka
 
-Этот проект был создан при помощи Parcel. Для знакомства и настройки
-дополнительных возможностей [обратись к документации](https://parceljs.org/).
+Application for cinema club`s member that allows to see trending or searching movies, to get info and trailer, to create custom lists with watched and scheduled movies.
 
-## Подготовка нового проекта
+Click link: [Filmoteka](https://samokhvalova-nata.github.io/filmoteka/)
 
-1. Убедись что на компьютере установлена LTS-версия Node.js.
-   [Скачай и установи](https://nodejs.org/en/) её если необходимо.
-2. Склонируй этот репозиторий.
-3. Измени имя папки с `parcel-project-template` на имя своего проекта.
-4. Создай новый пустой репозиторий на GitHub.
-5. Открой проект в VSCode, запусти терминал и свяжи проект с GitHub-репозиторием
-   [по инструкции](https://docs.github.com/en/get-started/getting-started-with-git/managing-remote-repositories#changing-a-remote-repositorys-url).
-6. Установи зависимости проекта в терминале командой `npm install` .
-7. Запусти режим разработки, выполнив команду `npm start`.
-8. Перейди в браузере по адресу [http://localhost:1234](http://localhost:1234).
-   Эта страница будет автоматически перезагружаться после сохранения изменений в
-   файлах проекта.
+Movies API (need to register to get api_key): [themoviedb](https://www.themoviedb.org/)
 
-## Файлы и папки
+### The application consists of 2 pages:
 
-- Все паршалы файлов стилей должны лежать в папке `src/sass` и импортироваться в
-  файлы стилей страниц. Например, для `index.html` файл стилей называется
-  `index.scss`.
-- Изображения добавляй в папку `src/images`. Сборщик оптимизирует их, но только
-  при деплое продакшн версии проекта. Все это происходит в облаке, чтобы не
-  нагружать твой компьютер, так как на слабых машинах это может занять много
-  времени.
+## Home
 
-## Деплой
+- The homepage with uploading popular movies
 
-Для настройки деплоя проекта необходимо выполнить несколько дополнительных шагов
-по настройке твоего репозитория. Зайди во вкладку `Settings` и в подсекции
-`Actions` выбери выбери пункт `General`.
+![Main page](/assets/main.jpg)
 
-![GitHub actions settings](./assets/actions-config-step-1.png)
+- The first page of the movies`catalog displays 20 listings, and the rest of them - on clicking the pagination buttons
 
-Пролистай страницу до последней секции, в которой убедись что выбраны опции как
-на следующем изображении и нажми `Save`. Без этих настроек у сборки будет
-недостаточно прав для автоматизации процесса деплоя.
+![Pagination](/assets/pagination.jpg)
 
-![GitHub actions settings](./assets/actions-config-step-2.png)
+- Searching and displaying movies by keyword
 
-Продакшн версия проекта будет автоматически собираться и деплоиться на GitHub
-Pages, в ветку `gh-pages`, каждый раз когда обновляется ветка `main`. Например,
-после прямого пуша или принятого пул-реквеста. Для этого необходимо в файле
-`package.json` отредактировать поле `homepage` и скрипт `build`, заменив
-`your_username` и `your_repo_name` на свои, и отправить изменения на GitHub.
+![Searching](/assets/search.jpg)
 
-```json
-"homepage": "https://your_username.github.io/your_repo_name/",
-"scripts": {
-  "build": "parcel build src/*.html --public-url /your_repo_name/"
-},
-```
+- Clicking the movie card opens a modal window with detailed information about the movie and opportunity to watch its trailer
 
-Далее необходимо зайти в настройки GitHub-репозитория (`Settings` > `Pages`) и
-выставить раздачу продакшн версии файлов из папки `/root` ветки `gh-pages`, если
-это небыло сделано автоматически.
+![Modal](/assets/modal.jpg)
 
-![GitHub Pages settings](./assets/repo-settings.png)
+- By clicking on the "Add to watched" and "Add to queue" buttons, the movie is added to the list of watched movies or the queue list of the current user, respectively
 
-### Статус деплоя
+![Add to lists](/assets/add-to-lists.jpg)
 
-Статус деплоя крайнего коммита отображается иконкой возле его идентификатора.
+- Switching dark/ligth theme by clicking on icon
 
-- **Желтый цвет** - выполняется сборка и деплой проекта.
-- **Зеленый цвет** - деплой завершился успешно.
-- **Красный цвет** - во время линтинга, сборки или деплоя произошла ошибка.
+![Switch theme](/assets/theme-switch.jpg)
 
-Более детальную информацию о статусе можно посмотреть кликнув по иконке, и в
-выпадающем окне перейти по ссылке `Details`.
+## My Library
+- By clicking on the "Watched" and "Queue" buttons, the watched movies or movies added to the user's queue are shown, respectively
 
-![Deployment status](./assets/status.png)
+![Library](/assets/library.jpg)
 
-### Живая страница
+### For start use command:
 
-Через какое-то время, обычно пару минут, живую страницу можно будет посмотреть
-по адресу указанному в отредактированном свойстве `homepage`. Например, вот
-ссылка на живую версию для этого репозитория
-[https://goitacademy.github.io/parcel-project-template](https://goitacademy.github.io/parcel-project-template).
+Install the dependencies of the project in the terminal with the command 
 
-Если открывается пустая страница, убедись что во вкладке `Console` нет ошибок
-связанных с неправильными путями к CSS и JS файлам проекта (**404**). Скорее
-всего у тебя неправильное значение свойства `homepage` или скрипта `build` в
-файле `package.json`.
+`npm install`
 
-## Как это работает
+Start the development mode, executed the command 
 
-![How it works](./assets/how-it-works.png)
+`npm start`
 
-1. После каждого пуша в ветку `main` GitHub-репозитория, запускается специальный
-   скрипт (GitHub Action) из файла `.github/workflows/deploy.yml`.
-2. Все файлы репозитория копируются на сервер, где проект инициализируется и
-   проходит сборку перед деплоем.
-3. Если все шаги прошли успешно, собранная продакшн версия файлов проекта
-   отправляется в ветку `gh-pages`. В противном случае, в логе выполнения
-   скрипта будет указано в чем проблема.
+Open [http://localhost:1234](http://localhost:1234) to view it in your browser.\
+The page will reload when you make changes.
+
+## Technology Stack:
+
+![HTML](https://img.shields.io/badge/-HTML-05122A?style=flat&logo=HTML5)&nbsp;
+![CSS](https://img.shields.io/badge/-CSS-05122A?style=flat&logo=CSS3&logoColor=1572B6)&nbsp;
+![JavaScript](https://img.shields.io/badge/-JavaScript-05122A?style=flat&logo=javascript)&nbsp;
+![Axios](https://img.shields.io/badge/-Axios-05122A?style=flat&logo=Axios)&nbsp;

@@ -1,46 +1,50 @@
-//******************* API.js DOCUMENTATION *******************
-/*
-  EXPORTED:  instance of class FetchTheMovieDbAPI
-  METODS:
-    *** async fetchMovie(page, searchQuery)
-      - fetches movies by page and searchQuery parameters
-      - searchQuery is optional, if absent the value from previous search will be used)
-    *** async fetchPopMovies(page)
-      - fetches weekly trending movies by page number
-      - NB! period('week' or 'day') can be changed by
-    *** async fetchMovieInfo(id)
-      - fetches movie details by movie id
-    *** async fetchGenres()
-      - returns data with ids and names of genres
-    *** async fetchConf()
-      - returns data with backend configuration,
-        such as set of widths of posters, and other
-      NB! the poster_sizes are obtained from fetchConf run@development
-        and stored in poster_sizes property created in constructor
-    *** getPosterSize(widthMin)
-      - returns first size which is equal or larger then widthMin
-    *** togglePeriod()
-      - changes value of period property used in fetchPopMovies method
-      - returns the new value
-    TODO: offer to implement a button for toggle 'week' and 'day'
-  TESTCASES: ALL OK (pls see here below)
-*/
-//************************** TESTCASES *************************
-//FOR TESTING, YOU SHOULD COPY ALL BELOW
-//THIS LINE TO THE TOP OF ANY UNIT USED ON TEST BED
+### API.js DOCUMENTATION 
+
+EXPORTED:  instance of class FetchTheMovieDbAPI
+  
+METODS:
+
+- async fetchMovie(page, searchQuery)
+    - fetches movies by page and searchQuery parameters
+    - searchQuery is optional, if absent the value from previous search will be used)
+- async fetchPopMovies(page)
+    - fetches weekly trending movies by page number
+    - NB! period('week' or 'day') can be changed by
+- async fetchMovieInfo(id)
+    - fetches movie details by movie id
+- async fetchGenres()
+    - returns data with ids and names of genres
+- async fetchConf()
+    - returns data with backend configuration, such as set of widths of posters, and other NB! the poster_sizes are obtained from fetchConf run@development and stored in poster_sizes property created in constructor
+- getPosterSize(widthMin)
+    returns first size which is equal or larger then widthMin
+- togglePeriod()
+    changes value of period property used in fetchPopMovies method
+    returns the new value
+
+### TESTCASES
+
+##### FOR TESTING, YOU SHOULD COPY ALL BELOW THIS LINE TO THE TOP OF ANY UNIT USED ON TEST BED
+
+```
 import { api } from './API';
-console.log('***** UNIT TESTING API.js *****');
-//* 1 - TEST fetchMovie(page, searchQuery): OK
+```
+1 - TEST fetchMovie(page, searchQuery): OK 
+
+```
 (async () => {
   try {
     const r = await api.fetchMovie(1, 'Avatar');
-    console.log('***TEST-1 fetchMovie(to be used in ???.js TODO:):');
     console.log('TEST api.fetchMovie(1, "Avatar"):', r);
   } catch (err) {
     console.log('ERROR! ', err);
   }
 })();
-//* 2 - TEST fetchPopMovies: OK
+```
+
+2 - TEST fetchPopMovies: OK
+
+```
 (async () => {
   try {
     const r = await api.fetchPopMovies(2);
@@ -52,11 +56,14 @@ console.log('***** UNIT TESTING API.js *****');
     console.log('ERROR! ', err);
   }
 })();
-//* 3 - TEST fetchMovieInfo: OK
+```
+
+3 - TEST fetchMovieInfo: OK
+
+```
 (async () => {
   try {
     const r = await api.fetchMovieInfo(5);
-    console.log('***TEST-3 fetchMovieInfo (to be used TODO:):');
     console.log(
       'TEST api.fetchMovieInfo(5):',
       r.title,
@@ -66,7 +73,11 @@ console.log('***** UNIT TESTING API.js *****');
     console.log('ERROR! ', err);
   }
 })();
-//* 4 - TEST fetchGenres: OK
+```
+
+4 - TEST fetchGenres: OK
+
+```
 (async () => {
   try {
     const r = await api.fetchGenres();
@@ -76,7 +87,11 @@ console.log('***** UNIT TESTING API.js *****');
     console.log('ERROR! ', err);
   }
 })();
-//* 5 - TEST fetchConf: OK
+```
+
+5 - TEST fetchConf: OK
+
+```
 (async () => {
   try {
     const configu = await api.fetchConf();
@@ -86,7 +101,11 @@ console.log('***** UNIT TESTING API.js *****');
     console.log('ERROR! ', err);
   }
 })();
-//* 6 - TEST togglePeriod: OK
+```
+
+6 - TEST togglePeriod: OK
+
+```
 console.log('***TEST-6 togglePeriod(for future use):');
 let r = api.togglePeriod();
 console.log('day=', r, r === 'day');
@@ -96,8 +115,13 @@ r = api.togglePeriod();
 console.log('day=', r, r === 'day');
 r = api.togglePeriod();
 console.log('day=', r, r === 'week');
-//* 7 - TEST getPosterSize: OK
+```
+
+7 - TEST getPosterSize: OK
+
 ('***TEST-7 getPosterSize(to be used in pop-films-loading.js):');
+
+```
 const sizes = [
   90,
   150,
@@ -130,3 +154,4 @@ for (let i = 0; i < sizes.length; i += 1) {
     r === poster_sizes[i]
   );
 }
+```

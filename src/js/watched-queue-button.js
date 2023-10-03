@@ -2,31 +2,13 @@ import { refs } from './refs';
 import { getSome } from './genres';
 import { api } from './API';
 
-// let id;
-// id = evt.target.dataset.id;
-
-/* OD:
-const galleryListEl = document.querySelector('[data-movies-list]');
-const watchedGalleryEl = document.querySelector('[data-watched]');
-const queueGalleryEl = document.querySelector('[data-queue]'); */
-
-/* OD:
-window.addEventListen er('load', renderWatchedGallery);
-refs.watchedGalleryEl.addEventList ener('click', renderWatchedGallery);
-refs.queueGalleryEl.addEventListen er('click', renderQueueGallery); */
 
 export function renderWatchedGallery() {
-  // console.log('renderWatchedGallery:', refs.galleryListEl);
   refs.addWatched.classList.remove('visually-hidden');
   refs.watchedGalleryEl.classList.add('active');
   refs.queueGalleryEl.classList.remove('active');
   renderGalleryFromLocaleStorage('watched');
   refs.addQueue.classList.add('visually-hidden');
-
-  // console.log(
-  //   'renderWatchedGallery:',
-  //   refs.galleryListEl.innerHTML
-  // );
 }
 
 export function renderQueueGallery() {
@@ -44,7 +26,6 @@ function renderGalleryFromLocaleStorage(key) {
   if (localeStorageMovies === null || localeStorageMovies.length === 0) {
     refs.galleryListEl.innerHTML =
       '<div class = "my-lib-empty-wrap"><iframe src="https://giphy.com/embed/iNx9pCiBimBAdOb0oa" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><span class ="my-lib-empty">Your library is empty...</span></p></div>';
-    //console.log('oooops, nothing');
   } else {
     localeStorageMovies.forEach(async el => {
       try {
@@ -74,9 +55,7 @@ function renderCards(data) {
       0,
       4
     )}</p>
-
     </div>
-
 </li>`
   );
 }

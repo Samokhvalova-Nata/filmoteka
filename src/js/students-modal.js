@@ -30,7 +30,6 @@ function escClose(e) {
     }
 }
 
-
 const swiper = new Swiper('.swiper', {
   direction: 'horizontal',
   slidesPerView: 4,

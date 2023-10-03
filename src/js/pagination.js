@@ -5,17 +5,10 @@ import { handlePageBtnClick } from './pop-films-loading';
 import { dataQuery } from './query-word-searching';
 import { playSpinner, stopSpinner } from './spinner.js';
 
-//TODO: import { Report } from 'notiflix/build/notiflix-report-aio';
-
-//OD: const container = document.getElementById('tui-pagination-container');
-
-//OD: const galleryEl = document.querySelector('.film__gallery');
 let paginationSearch;
 let paginationPopularTrand;
 
-// ==========================
 function notActive(itemsTotal) {
-  // resetPagination();
   paginationSearch = new Pagination(refs.container, {
     totalItems: itemsTotal,
     itemsPerPage: 20,
@@ -38,9 +31,7 @@ function go(value) {
   });
 }
 
-// ==========================
-//OD: THIS IS THE COURSE OF ERROR WHEN LOADING!
-// TODO:
+
 function makePagin() {
   paginationPopularTrand = new Pagination(refs.container, {
     totalItems: 20000,
@@ -49,7 +40,7 @@ function makePagin() {
     centerAlign: true,
     page: api.page,
   });
-  // ==========================
+  
   if (refs.container) {
     paginationPopularTrand.on('afterMove', e => {
       api.page = e.page;
@@ -62,13 +53,6 @@ function makePagin() {
   }
 }
 
-// =================> for reset of pagination
-// function resetPagination() {
-//   paginationPopularTrand.reset();
-// }
-// function resetPaginationSearch() {
-//   paginationSearch.reset();
-// }
 function cleanAllGallery() {
   refs.gallery.innerHTML = ' ';
 }

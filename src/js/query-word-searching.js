@@ -7,9 +7,7 @@ import { playSpinner, stopSpinner } from './spinner.js';
 import { notActive } from './pagination.js';
 
 export function handleFormSubmit(event) {
-  // console.log('handleFormSubmit ', event.currentTarget); //TODO:
   event.preventDefault();
-  // console.log('handleFormSubmit ', event.currentTarget.search.value.trim());
   const query = event.currentTarget.search.value.trim();
   api.page = 1;
   if (query === '') {
@@ -22,7 +20,7 @@ export function handleFormSubmit(event) {
 }
 
 export async function dataQuery() {
-  // console.log('dataQuery '); //TODO:
+
   try {
     playSpinner();
     const movies = await api.fetchMovie(api.search);
@@ -44,7 +42,6 @@ export async function dataQuery() {
   }
 }
 
-//TODO: export
 function renderMoviesMarkup(response) {
   if (response === null) {
     refs.gallery.innerHTML = '';

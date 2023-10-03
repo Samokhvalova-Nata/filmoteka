@@ -1,5 +1,3 @@
-//all refs
-
 export const refs = {
   //modal
   btnCloseModal: document.querySelector('[data-modal-close]'),

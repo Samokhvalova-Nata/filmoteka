@@ -1,5 +1,3 @@
-//OD - class for Genres: methods getSome(idArr) and getAll(idArr) to be used for obtaining genres string for cards
-
 const genresAll = {
   12: 'Adventure',
   14: 'Fantasy',

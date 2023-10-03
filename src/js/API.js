@@ -1,9 +1,9 @@
 import axios from 'axios';
 
 class FetchTheMovieDbAPI {
-  //the properties below shall not be available outside to prevent accidential change
-  #period = 'week'; //'week' or 'day' //TODO: check
-  #searchQuery = 'Avatar'; //some default value
+
+  #period = 'week'; 
+  #searchQuery = 'Avatar'; 
 
   #BASE_URL = 'https://api.themoviedb.org/3/';
   #API_KEY = '169863a84bc27c731fc45c45dd4a4a7e';
@@ -11,12 +11,12 @@ class FetchTheMovieDbAPI {
   poster_sizes = ['w92', 'w154', 'w185', 'w342', 'w500', 'w780', 'original'];
 
   constructor() {
-    this.fetchConf(); //TODO: can be commented (then backEndConfig will be not valid)
+    this.fetchConf(); 
   }
   search = null;
   page = 1;
   async fetchMovie(searchQuery) {
-    //update property value if parameter supplied
+
     if (searchQuery) {
       this.#searchQuery = searchQuery;
     }
@@ -72,15 +72,13 @@ class FetchTheMovieDbAPI {
     const url = `${this.#BASE_URL}configuration?api_key=${this.#API_KEY}`;
     try {
       const r = await axios.get(url);
-      this.backEndConfig = r.data; //TODO: update property poster_sizes @fetchConf
+      this.backEndConfig = r.data; 
       return r.data;
     } catch (error) {
       throw new Error(error.message);
     }
   }
 
-  //***
-  //  returns first size which is equal or larger then widthMin
   getPosterSize(widthMin) {
     for (let i = 0; i < this.poster_sizes.length; i += 1) {
       if (widthMin <= Number(this.poster_sizes[i].slice(1))) {

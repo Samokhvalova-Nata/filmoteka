@@ -12,14 +12,13 @@ export async function handlePageBtnClick() {
     const { data } = await api.fetchPopMovies();
     makeElements(data.results, api.poster_sizes[3]);
   } catch (error) {
-    //TODO: notification with Notiflix.error
     console.log('ERROR! ', error);
   }
   setTimeout(() => {
     stopSpinner();
   }, 222);
 }
-// ==========>make HTML EL...
+
 function makeElements(value, size) {
   cleanAllGallery();
   makePagin();
@@ -29,7 +28,6 @@ function makeElements(value, size) {
   );
 }
 
-// =======================>cleanAllinGallery
 function cleanAllGallery() {
   refs.gallery.innerHTML = '';
 }
